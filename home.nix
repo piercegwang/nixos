@@ -119,7 +119,8 @@
     zerotierone
 
     # Window manager
-    i3
+    # bspwm
+    # sxhkd
   ];
 
   # starship - an customizable prompt for any shell
@@ -159,7 +160,7 @@
 
     # set some aliases, feel free to add more or remove some
     shellAliases = {
-      nixreload = "sudo nixos-rebuild switch --flake /home/piercewang/Documents/nixos";
+      nixreload = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos";
     };
   };
 
