@@ -100,6 +100,13 @@
     # ethtool
     # pciutils # lspci
     # usbutils # lsusb
+
+    # Emacs dependencies
+    sqlite
+    gcc_multi
+    cmake
+    gnumake
+    libtool
   ];
 
   # starship - an customizable prompt for any shell
@@ -138,9 +145,9 @@
     '';
 
     # set some aliases, feel free to add more or remove some
-    # shellAliases = {
-    #   k = "kubectl";
-    # };
+    shellAliases = {
+      nixreload = "sudo nixos-rebuild switch --flake /home/piercewang/Documents/nixos";
+    };
   };
 
   # This value determines the home Manager release that your
