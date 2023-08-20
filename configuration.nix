@@ -101,12 +101,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
-      brave
-      emacs
-      zerotierone
-      nextcloud-client
-      bitwarden
     ];
   };
 

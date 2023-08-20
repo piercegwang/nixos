@@ -107,6 +107,19 @@
     cmake
     gnumake
     libtool
+
+    # Gaming
+    airshipper
+
+    # General Apps
+    brave
+    emacs
+    bitwarden
+    nextcloud-client
+    zerotierone
+
+    # Window manager
+    i3
   ];
 
   # starship - an customizable prompt for any shell
