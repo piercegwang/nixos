@@ -18,6 +18,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware.bluetooth.settings = {
+    General = {
+      ControllerMode = "bredr";
+    };
+  };
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;

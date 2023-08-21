@@ -74,6 +74,7 @@
     # gawk
     # zstd
     gnupg
+    oh-my-zsh
 
     # nix related
     #
@@ -117,11 +118,15 @@
     bitwarden
     nextcloud-client
     zerotierone
+    zoom-us
 
     # Window manager
-    # bspwm
-    # sxhkd
+    bspwm
+    sxhkd
   ];
+
+  xsession.windowManager.bspwm.enable = true;
+
 
   # starship - an customizable prompt for any shell
   # programs.starship = {
@@ -151,16 +156,32 @@
   # };
 
   programs.bash = {
+    enable = false;
+  };
+  #   enableCompletion = true;
+  #   # TODO add your custom bashrc here
+  #   bashrcExtra = ''
+  #     export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+  #   '';
+
+  #   # set some aliases, feel free to add more or remove some
+  #   shellAliases = {
+  #     nixreload = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos";
+  #   };
+  # };
+
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
-    # TODO add your custom bashrc here
-    bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
-    '';
-
-    # set some aliases, feel free to add more or remove some
     shellAliases = {
-      nixreload = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos";
+      update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos";
+    };
+    # histSize = 10000;
+    # histFile = "${config.xdg.dataHome}/zsh/history";
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
     };
   };
 
