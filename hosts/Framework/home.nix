@@ -117,8 +117,8 @@
     emacs
     bitwarden
     nextcloud-client
-    zerotierone
     zoom-us
+    signal-desktop
 
     # Window manager
     bspwm
@@ -126,7 +126,6 @@
   ];
 
   xsession.windowManager.bspwm.enable = true;
-
 
   # starship - an customizable prompt for any shell
   # programs.starship = {

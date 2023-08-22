@@ -5,9 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ 
-    "nix-command" 
-    "flakes" 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
   ];
   imports =
     [ # Include the results of the hardware scan.
@@ -36,7 +36,7 @@
   boot.initrd.luks.devices."luks-5f5347bc-c685-4b20-aaca-c5e24a26ddd4".device = "/dev/disk/by-uuid/5f5347bc-c685-4b20-aaca-c5e24a26ddd4";
   boot.initrd.luks.devices."luks-5f5347bc-c685-4b20-aaca-c5e24a26ddd4".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "Framework"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -126,9 +126,15 @@
 
   systemd.packages = with pkgs; [
     packagekit
+    zerotierone
   ];
 
-  services.zerotierone.enable = true;
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "a0cbf4b62a5cddb8"
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

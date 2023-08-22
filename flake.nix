@@ -2,36 +2,28 @@
   description = "Pierce's NixOS Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";                     # Default Stable Nix Packages
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # home-manager, used for managing user configuration
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    home-manager = {                                                      # User Package Management
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {self, nixpkgs, home-manager, nixos-hardware, ...}@inputs: {
-    nixosConfigurations = {
-      "nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          ./configuration.nix
-          nixos-hardware.nixosModules.framework-12th-gen-intel
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.piercewang = import ./home.nix;
-
-            # optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+  outputs = inputs @ {self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ...}:
+    let                                                                     # Variables that can be used in the config files.
+      user = "piercewang";
+    in                                                                      # Use above variables in ...
+      {
+        nixosConfigurations = (
+          import ./hosts {
+            inherit (nixpkgs) lib;
+            inherit inputs user nixpkgs nixpkgs-unstable home-manager nixos-hardware;
           }
-        ];
+        );
       };
-    };
-  };
 }
