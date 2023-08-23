@@ -108,22 +108,31 @@
     cmake
     gnumake
     libtool
+    xdotool
+    xorg.xwininfo
 
     # Gaming
     airshipper
 
     # General Apps
-    brave
-    emacs
+    betterdiscord-installer
     bitwarden
+    brave
+    discord
+    emacs
     nextcloud-client
-    zoom-us
     signal-desktop
+    slack
+    spotify
+    zoom-us
+    ispell
 
     # Window manager
     bspwm
     sxhkd
   ];
+
+  services.emacs.enable = true;
 
   xsession.windowManager.bspwm.enable = true;
 
@@ -173,7 +182,7 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos";
+      update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos#Framework";
     };
     # histSize = 10000;
     # histFile = "${config.xdg.dataHome}/zsh/history";
