@@ -47,7 +47,8 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -108,9 +109,8 @@
     isNormalUser = true;
     description = "Pierce Wang";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
+    # packages = with pkgs; [
+    # ];
   };
 
   # Allow unfree packages
@@ -122,18 +122,38 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     gnome.gnome-tweaks
-  ];
-
-  systemd.packages = with pkgs; [
-    packagekit
+    syncthing
     zerotierone
+    packagekit
   ];
 
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [
-      "a0cbf4b62a5cddb8"
-    ];
+  # What is this for?
+  # systemd.packages = with pkgs; [
+  # ];
+
+  services = {
+    zerotierone = {
+      enable = true;
+      joinNetworks = [
+        "a0cbf4b62a5cddb8"
+      ];
+    };
+    syncthing = {
+      enable = true;
+      systemService = true;
+      user = "piercewang";
+      dataDir = "/home/piercewang/NextCloud";
+      configDir = "/home/piercewang/.config/syncthing";
+      devices = {
+        "iPhone 12" = { id = "HV36F5O-NMNCCE6-7CMOQUC-7FJS7OF-XZSXADP-LTTAWWN-WEZKCJV-MZQMQQ5"; };
+      };
+      folders = {
+        "org-roam" = {        # Name of folder in Syncthing, also the folder ID
+          path = "/home/piercewang/NextCloud/Documents/org-roam";    # Which folder to add to Syncthing
+          devices = [ "iPhone 12" ];      # Which devices to share the folder with
+        };
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
