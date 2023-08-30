@@ -105,15 +105,16 @@
     # usbutils # lsusb
 
     # Emacs dependencies
-    sqlite
-    gcc_multi
     cmake
+    ditaa
+    gcc_multi
     gnumake
+    ispell
     libtool
+    sqlite
+    tetex
     xdotool
     xorg.xwininfo
-    tetex
-    ditaa
 
     # Gaming
     airshipper
@@ -124,12 +125,12 @@
     brave
     discord
     emacs
+    musescore
     nextcloud-client
     signal-desktop
     slack
     spotify
     zoom-us
-    ispell
 
     # Window manager
     bspwm
