@@ -110,6 +110,8 @@
     libtool
     xdotool
     xorg.xwininfo
+    tetex
+    ditaa
 
     # Gaming
     airshipper
