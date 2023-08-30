@@ -75,6 +75,8 @@
     # zstd
     gnupg
     oh-my-zsh
+    python311
+    zulu # Java
 
     # nix related
     #
