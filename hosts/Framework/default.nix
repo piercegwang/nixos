@@ -146,11 +146,21 @@
       configDir = "/home/piercewang/.config/syncthing";
       devices = {
         "iPhone 12" = { id = "HV36F5O-NMNCCE6-7CMOQUC-7FJS7OF-XZSXADP-LTTAWWN-WEZKCJV-MZQMQQ5"; };
+        "raspberrypi" = { id = "I5MBADF-DBPUQ2Q-NF5LLXB-DGVA7WP-QZEBIYB-LKYXT7P-KNEF77Z-POOFRQX"; };
       };
       folders = {
         "org-roam" = {        # Name of folder in Syncthing, also the folder ID
           path = "/home/piercewang/NextCloud/Documents/org-roam";    # Which folder to add to Syncthing
-          devices = [ "iPhone 12" ];      # Which devices to share the folder with
+          devices = [
+            "iPhone 12"
+            "raspberrypi"
+          ];
+        };
+        "projects" = {        # Name of folder in Syncthing, also the folder ID
+          path = "/home/piercewang/NextCloud/Documents/projects";    # Which folder to add to Syncthing
+          devices = [
+            "raspberrypi"
+          ];
         };
       };
     };

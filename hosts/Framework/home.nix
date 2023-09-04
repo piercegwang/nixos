@@ -53,6 +53,7 @@
     # yq-go # yaml processer https://github.com/mikefarah/yq
     # exa # A modern replacement for ‘ls’
     # fzf # A command-line fuzzy finder
+    gnome-randr
 
     # networking tools
     # mtr # A network diagnostic tool
@@ -63,6 +64,7 @@
     # socat # replacement of openbsd-netcat
     # nmap # A utility for network discovery and security auditing
     # ipcalc  # it is a calculator for the IPv4/v6 addresses
+    pulseaudioFull
 
     # misc
     cowsay
@@ -77,6 +79,43 @@
     oh-my-zsh
     python311
     zulu # Java
+    openssl
+
+    # R stuff
+    quarto
+    rstudio
+    (rWrapper.override {
+      packages = with pkgs.rPackages; [
+        # data.table
+        chron
+        plyr
+        dplyr
+        shiny
+        shinyjs
+        parallel
+        doMC
+        # stats
+        microbenchmark
+        ggplot2
+        readxl
+        feather
+        googlesheets4
+        readr
+        DT
+        knitr
+        rmarkdown
+        Rcpp
+        formattable
+        ggnewscale
+        htmltools
+        lubridate
+        stringr
+        tidyr
+        tidyverse
+        ## the rest of your R packages here
+      ];}
+    )
+    pandoc
 
     # nix related
     #
@@ -127,6 +166,8 @@
     emacs
     musescore
     nextcloud-client
+    # nodePackages_latest.musescore-downloader
+    # nodejs_20
     signal-desktop
     slack
     spotify
