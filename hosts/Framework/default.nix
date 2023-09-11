@@ -68,17 +68,17 @@
   # Enable fwupd
   services.fwupd.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+  services = {
+    xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
+      # Enable the GNOME Desktop Environment.
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+      # Configure keymap in X11
+      layout = "us";
+      xkbVariant = "";
+    };
   };
 
   # Enable CUPS to print documents.
@@ -157,7 +157,7 @@
           ];
         };
         "projects" = {        # Name of folder in Syncthing, also the folder ID
-          path = "/home/piercewang/NextCloud/Documents/projects";    # Which folder to add to Syncthing
+          path = "/home/piercewang/NextCloud/projects";    # Which folder to add to Syncthing
           devices = [
             "raspberrypi"
           ];
