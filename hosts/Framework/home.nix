@@ -196,7 +196,7 @@
     bitwarden
     brave
     discord
-    emacs
+    emacs29
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader
@@ -211,7 +211,7 @@
     sxhkd
   ];
 
-  services.emacs.enable = true;
+  services.emacs.enable = false;
 
   xsession.windowManager.bspwm.enable = true;
 
