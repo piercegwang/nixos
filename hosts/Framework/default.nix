@@ -52,6 +52,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  # i18n.defaultLocale = "zh_CN.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -65,6 +66,28 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # i18n.inputMethod.enabled = "fcitx5";
+  # i18n.inputMethod.fcitx5.addons = with pkgs; [
+  #   fcitx5-chinese-addons
+  #   fcitx5-rime
+  # ];
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-configtool
+      fcitx5-chinese-addons
+      fcitx5-gtk
+    ];
+
+    # 我现在用 ibus
+    # enabled = "ibus";
+    # ibus.engines = with pkgs.ibus-engines; [
+    #   libpinyin
+    #   rime
+    # ];
+  };
+
   # Enable fwupd
   services.fwupd.enable = true;
 
@@ -76,8 +99,9 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
       # Configure keymap in X11
-      layout = "us";
+      layout = "us,cn";
       xkbVariant = "";
+      xkbOptions = "ctrl:nocaps";
     };
   };
 
