@@ -18,7 +18,7 @@ in
     Framework = lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit inputs unstable system user;
+        inherit inputs system user;
         host = {
           hostName = "Framework";
         };
@@ -32,6 +32,13 @@ in
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit unstable user;
+            host = {
+              hostName = "piercewang";
+              mainMonitor = "eDP-1";
+            };
+          };
           home-manager.users.${user} = {
             imports = [(import ./Framework/home.nix)];
           };

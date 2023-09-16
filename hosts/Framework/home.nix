@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   # TODO please change the username & home directory to your own
@@ -97,11 +97,10 @@
     pulseaudioFull
 
     # misc
-    cowsay
     file
     which
     tree
-    gnused
+    # gnused
     gnutar
     # gawk
     # zstd
@@ -112,6 +111,7 @@
     openssl
     libreoffice-fresh
     wireshark
+    # keyd
 
     # R stuff
     quarto
@@ -185,11 +185,13 @@
     sqlite
     # tetex
     texlive.combined.scheme-medium
+    wl-clipboard
     xdotool
     xorg.xwininfo
 
     # Gaming
     airshipper
+    minetest
 
     # General Apps
     betterdiscord-installer
@@ -197,8 +199,8 @@
     brave
     discord
     emacs29
-    musescore
-    nextcloud-client
+    unstable.musescore
+    # nextcloud-client
     # nodePackages_latest.musescore-downloader
     # nodejs_20
     signal-desktop
