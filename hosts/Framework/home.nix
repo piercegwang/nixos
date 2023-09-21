@@ -183,11 +183,11 @@
     ispell
     libtool
     sqlite
-    # tetex
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     wl-clipboard
     xdotool
     xorg.xwininfo
+    findutils
 
     # Gaming
     airshipper
@@ -207,6 +207,7 @@
     slack
     spotify
     zoom-us
+    masterpdfeditor
 
     # Window manager
     bspwm
