@@ -106,12 +106,23 @@
     # zstd
     gnupg
     oh-my-zsh
-    python311
     zulu # Java
     openssl
     libreoffice-fresh
     wireshark
     # keyd
+
+    # Development
+    python311
+    python311Packages.pip
+    python311Packages.autopep8
+    python311Packages.black
+    python311Packages.isort
+    rustup
+    # rust-analyzer
+    mold # faster linker
+    semgrep
+    unstable.godot_4
 
     # R stuff
     quarto
@@ -188,10 +199,12 @@
     xdotool
     xorg.xwininfo
     findutils
+    rsync
 
     # Gaming
     airshipper
     minetest
+    endless-sky
 
     # General Apps
     betterdiscord-installer
@@ -199,13 +212,14 @@
     brave
     discord
     emacs29
+    firefox
     unstable.musescore
     # nextcloud-client
     # nodePackages_latest.musescore-downloader
     # nodejs_20
     signal-desktop
     slack
-    spotify
+    unstable.spotify
     zoom-us
     masterpdfeditor
 

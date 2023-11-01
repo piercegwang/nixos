@@ -99,11 +99,14 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
       # Configure keymap in X11
-      layout = "us,cn";
+      # layout = "us,cn";
       xkbVariant = "";
       xkbOptions = "ctrl:nocaps";
     };
   };
+
+  # programs.sway.enable = true;
+  # xdg.portal.wlr.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -149,6 +152,7 @@
     syncthing
     zerotierone
     packagekit
+    steam
   ];
 
   # What is this for?
@@ -188,6 +192,12 @@
         };
       };
     };
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # Some programs need SUID wrappers, can be configured further or are
