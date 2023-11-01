@@ -110,6 +110,7 @@
     openssl
     libreoffice-fresh
     wireshark
+    home-manager
     # keyd
 
     # Development
