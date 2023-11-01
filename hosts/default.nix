@@ -3,9 +3,12 @@
 let
   system = "x86_64-linux";
 
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;                              # Allow proprietary software
+  # pkgs = import nixpkgs {
+  #   inherit system;
+  #   config.allowUnfree = true;                              # Allow proprietary software
+  # };
+  pkgs = nixpkgs.legacyPackages.${system} {
+    config.allowUnfree = true;
   };
 
   unstable = import nixpkgs-unstable {
