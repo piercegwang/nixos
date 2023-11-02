@@ -218,11 +218,12 @@
     # nextcloud-client
     # nodePackages_latest.musescore-downloader
     # nodejs_20
-    signal-desktop
+    unstable.signal-desktop
     slack
     unstable.spotify
     zoom-us
     masterpdfeditor
+    drive
 
     # Window manager
     bspwm
