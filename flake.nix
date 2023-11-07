@@ -20,7 +20,7 @@
     in                                                                      # Use above variables in ...
       {
         nixosConfigurations = (
-          import ./hosts {
+         import ./hosts {
             inherit (nixpkgs) lib;
             inherit inputs user nixpkgs nixpkgs-unstable home-manager nixos-hardware;
           }

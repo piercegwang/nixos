@@ -1,7 +1,6 @@
 { config, pkgs, unstable, ... }:
 
 {
-  # TODO please change the username & home directory to your own
   home.username = "piercewang";
   home.homeDirectory = "/home/piercewang";
 
