@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "piercewang";
@@ -122,7 +122,7 @@
     # rust-analyzer
     mold # faster linker
     semgrep
-    unstable.godot_4
+    godot_4
 
     # R stuff
     quarto
@@ -213,13 +213,13 @@
     discord
     emacs29
     firefox
-    unstable.musescore
+    musescore
     # nextcloud-client
     # nodePackages_latest.musescore-downloader
     # nodejs_20
-    unstable.signal-desktop
+    signal-desktop
     slack
-    unstable.spotify
+    spotify
     zoom-us
     masterpdfeditor
     drive

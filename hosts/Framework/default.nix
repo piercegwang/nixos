@@ -18,9 +18,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  hardware.bluetooth.settings = {
-    General = {
-      ControllerMode = "bredr";
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        ControllerMode = "bredr";
+      };
     };
   };
 
@@ -96,12 +99,15 @@
       # Enable the X11 windowing system.
       enable = true;
       # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      # displayManager.gdm.enable = true;
+      # desktopManager.gnome.enable = true;
+      # need unstable for this:
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
-      xkbVariant = "";
-      xkbOptions = "ctrl:nocaps";
+      # xkbVariant = "";
+      # xkbOptions = "ctrl:nocaps";
     };
   };
 
@@ -172,23 +178,25 @@
       user = "piercewang";
       dataDir = "/home/piercewang/NextCloud";
       configDir = "/home/piercewang/.config/syncthing";
-      devices = {
-        "iPhone 12" = { id = "HV36F5O-NMNCCE6-7CMOQUC-7FJS7OF-XZSXADP-LTTAWWN-WEZKCJV-MZQMQQ5"; };
-        "raspberrypi" = { id = "I5MBADF-DBPUQ2Q-NF5LLXB-DGVA7WP-QZEBIYB-LKYXT7P-KNEF77Z-POOFRQX"; };
-      };
-      folders = {
-        "org-roam" = {        # Name of folder in Syncthing, also the folder ID
-          path = "/home/piercewang/NextCloud/Documents/org-roam";    # Which folder to add to Syncthing
-          devices = [
-            "iPhone 12"
-            "raspberrypi"
-          ];
+      settings = {
+        devices = {
+          "iPhone 12" = { id = "HV36F5O-NMNCCE6-7CMOQUC-7FJS7OF-XZSXADP-LTTAWWN-WEZKCJV-MZQMQQ5"; };
+          "raspberrypi" = { id = "I5MBADF-DBPUQ2Q-NF5LLXB-DGVA7WP-QZEBIYB-LKYXT7P-KNEF77Z-POOFRQX"; };
         };
-        "projects" = {        # Name of folder in Syncthing, also the folder ID
-          path = "/home/piercewang/NextCloud/projects";    # Which folder to add to Syncthing
-          devices = [
-            "raspberrypi"
-          ];
+        folders = {
+          "org-roam" = {        # Name of folder in Syncthing, also the folder ID
+            path = "/home/piercewang/NextCloud/Documents/org-roam";    # Which folder to add to Syncthing
+            devices = [
+              "iPhone 12"
+              "raspberrypi"
+            ];
+          };
+          "projects" = {        # Name of folder in Syncthing, also the folder ID
+            path = "/home/piercewang/NextCloud/projects";    # Which folder to add to Syncthing
+            devices = [
+              "raspberrypi"
+            ];
+          };
         };
       };
     };

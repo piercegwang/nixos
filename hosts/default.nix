@@ -1,4 +1,4 @@
-{ lib, inputs, user, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }:
+{ lib, inputs, user, nixpkgs, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
@@ -10,11 +10,6 @@ let
   # pkgs = nixpkgs.legacyPackages.${system} {
   #   config.allowUnfree = true;
   # };
-
-  unstable = import nixpkgs-unstable {
-    inherit system;
-    config.allowUnfree = true;                              # Allow proprietary software
-  };
 
 in
   {
@@ -36,7 +31,7 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit unstable user;
+            inherit user;
             host = {
               hostName = "piercewang";
               mainMonitor = "eDP-1";
