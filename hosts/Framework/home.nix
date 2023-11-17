@@ -110,6 +110,7 @@
     libreoffice-fresh
     wireshark
     home-manager
+    vlc
     # keyd
 
     # Development

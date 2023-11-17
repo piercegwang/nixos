@@ -49,6 +49,22 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # networking.wireless = {
+  #   enable = true;
+  #   environmentFile = "/home/piercewang/.config/secrets/wireless.env";
+  #   networks = {
+  #     "Columbia U Secure" = {
+  #       auth = ''
+  #         key_mgmt=WPA-EAP
+  #         eap=PEAP
+  #         phase2="auth=MSCHAPV2"
+  #         identity="@IDENT_COLUMBIA@"
+  #         password="@PSK_COLUMBIA@"
+  #         '';
+  #     };
+  #   };
+  # };
+
   # Set your time zone.
   # time.timeZone = "America/Los_Angeles";
   time.timeZone = "America/New_York";
@@ -111,6 +127,9 @@
     };
   };
 
+  # GTK themes are not applied in Wayland applications / Window Decorations missing / Cursor looks different (from nixos guide)
+  programs.dconf.enable = true;
+
   # programs.sway.enable = true;
   # xdg.portal.wlr.enable = true;
 
@@ -154,12 +173,15 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    gnome.gnome-tweaks
+    # gnome.gnome-tweaks
     syncthing
     zerotierone
     packagekit
     steam
+    # blueman
+    # libsForQt5.bluez-qt
   ];
+
 
   # What is this for?
   # systemd.packages = with pkgs; [
