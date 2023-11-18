@@ -1,9 +1,9 @@
-# Pierce's NixOS Configuration
+* Pierce's NixOS Configuration
 
 I have a lot of ideas as to where this repo could go (perhaps having two configurations for personal and work, or with the complexities of Flakes perhaps I could make some optional evaluations... regardless, this is my NixOS configuration.
 
-## Evaluation and setup
+** Evaluation and setup
 
 ```bash
-sudo nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake .#<Framework|ThinkPad>
 ```
