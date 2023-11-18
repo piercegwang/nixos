@@ -56,7 +56,7 @@ in
 
       # modules = [];
       modules = [
-        ./Thinkpad
+        ./ThinkPad
 
         home-manager.nixosModules.home-manager
         {
