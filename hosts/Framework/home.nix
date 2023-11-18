@@ -215,7 +215,7 @@
     emacs29
     firefox
     musescore
-    # nextcloud-client
+    nextcloud-client
     # nodePackages_latest.musescore-downloader
     # nodejs_20
     signal-desktop
@@ -281,6 +281,7 @@
     enableCompletion = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos#Framework";
+      nixtest = "sudo nixos-rebuild test --flake /home/piercewang/.config/nixos#Framework";
     };
     # histSize = 10000;
     # histFile = "${config.xdg.dataHome}/zsh/history";
