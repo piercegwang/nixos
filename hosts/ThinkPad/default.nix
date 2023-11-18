@@ -12,6 +12,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/nextcloud
     ];
 
   # Bootloader.
@@ -144,6 +145,7 @@
     zerotierone
     ripgrep
     git
+    postgresql
   ];
 
 
@@ -167,11 +169,14 @@
 
   # List services that you want to enable:
 
+  networking.firewall.enable = true;
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
