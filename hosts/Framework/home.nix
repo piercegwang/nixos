@@ -82,7 +82,6 @@
     # yq-go # yaml processer https://github.com/mikefarah/yq
     # exa # A modern replacement for ‘ls’
     # fzf # A command-line fuzzy finder
-    gnome-randr
 
     # networking tools
     # mtr # A network diagnostic tool
@@ -112,6 +111,12 @@
     home-manager
     vlc
     # keyd
+
+    # -- GNOME
+    # gnome-randr
+
+    # -- KDE Plasma
+    kscreen
 
     # Development
     python311

@@ -140,6 +140,9 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.pki.certificateFiles = [
+    ../../modules/nextcloud/nc-selfsigned.pem
+  ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -174,12 +177,9 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     # gnome.gnome-tweaks
-    syncthing
     zerotierone
     packagekit
     steam
-    # blueman
-    # libsForQt5.bluez-qt
   ];
 
 
@@ -193,34 +193,6 @@
       joinNetworks = [
         "a0cbf4b62a5cddb8"
       ];
-    };
-    syncthing = {
-      enable = true;
-      systemService = true;
-      user = "piercewang";
-      dataDir = "/home/piercewang/NextCloud";
-      configDir = "/home/piercewang/.config/syncthing";
-      settings = {
-        devices = {
-          "iPhone 12" = { id = "HV36F5O-NMNCCE6-7CMOQUC-7FJS7OF-XZSXADP-LTTAWWN-WEZKCJV-MZQMQQ5"; };
-          "raspberrypi" = { id = "I5MBADF-DBPUQ2Q-NF5LLXB-DGVA7WP-QZEBIYB-LKYXT7P-KNEF77Z-POOFRQX"; };
-        };
-        folders = {
-          "org-roam" = {        # Name of folder in Syncthing, also the folder ID
-            path = "/home/piercewang/NextCloud/Documents/org-roam";    # Which folder to add to Syncthing
-            devices = [
-              "iPhone 12"
-              "raspberrypi"
-            ];
-          };
-          "projects" = {        # Name of folder in Syncthing, also the folder ID
-            path = "/home/piercewang/NextCloud/projects";    # Which folder to add to Syncthing
-            devices = [
-              "raspberrypi"
-            ];
-          };
-        };
-      };
     };
   };
 
