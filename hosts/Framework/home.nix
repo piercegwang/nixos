@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stable, ... }:
 
 {
   home.username = "piercewang";
@@ -102,7 +102,7 @@
     gnutar
     # gawk
     # zstd
-    gnupg
+    stable.gnupg1
     oh-my-zsh
     zulu # Java
     openssl
@@ -211,6 +211,12 @@
     airshipper
     minetest
     endless-sky
+    # (lutris.override {
+    #    extraPkgs = pkgs: [
+    #      wine
+    #    ];
+    # })
+
 
     # General Apps
     betterdiscord-installer
@@ -227,12 +233,14 @@
     slack
     spotify
     zoom-us
-    masterpdfeditor
+    scribus
     drive
+    handbrake
+    obs-studio
 
     # Window manager
-    bspwm
-    sxhkd
+    # bspwm
+    # sxhkd
   ];
 
   services.emacs.enable = false;

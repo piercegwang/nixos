@@ -1,9 +1,14 @@
-{ lib, inputs, user, nixpkgs, home-manager, nixos-hardware, ... }:
+{ lib, inputs, user, nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
 
   pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;                              # Allow proprietary software
+  };
+
+  stable = import nixpkgs-stable {
     inherit system;
     config.allowUnfree = true;                              # Allow proprietary software
   };
@@ -31,7 +36,7 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit user;
+            inherit user stable;
             host = {
               hostName = "piercewang";
               mainMonitor = "eDP-1";
