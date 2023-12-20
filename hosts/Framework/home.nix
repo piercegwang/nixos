@@ -82,6 +82,7 @@
     # yq-go # yaml processer https://github.com/mikefarah/yq
     # exa # A modern replacement for ‘ls’
     # fzf # A command-line fuzzy finder
+    dbus
 
     # networking tools
     # mtr # A network diagnostic tool
@@ -109,7 +110,8 @@
     libreoffice-fresh
     wireshark
     home-manager
-    vlc
+    # vlc
+    mpv
     # keyd
 
     # -- GNOME
@@ -129,6 +131,8 @@
     mold # faster linker
     semgrep
     godot_4
+    blender
+    libresprite
 
     # R stuff
     quarto
@@ -206,6 +210,8 @@
     xorg.xwininfo
     findutils
     rsync
+    ghostscript
+    figlet
 
     # Gaming
     airshipper
@@ -237,6 +243,8 @@
     drive
     handbrake
     obs-studio
+    whatsapp-for-linux
+    ollama
 
     # Window manager
     # bspwm
