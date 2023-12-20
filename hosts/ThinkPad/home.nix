@@ -169,6 +169,7 @@
     # nextcloud-client
     # nodePackages_latest.musescore-downloader
     # nodejs_20
+    ollama
   ];
 
   programs.bash = {
