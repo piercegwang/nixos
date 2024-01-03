@@ -1,4 +1,4 @@
-{ config, pkgs, stable, ... }:
+{ config, pkgs, stable-2305, ... }:
 
 {
   home.username = "piercewang";
@@ -103,7 +103,7 @@
     gnutar
     # gawk
     # zstd
-    stable.gnupg1
+    stable-2305.gnupg1
     oh-my-zsh
     zulu # Java
     openssl
@@ -245,6 +245,7 @@
     obs-studio
     whatsapp-for-linux
     ollama
+    denaro
 
     # Window manager
     # bspwm

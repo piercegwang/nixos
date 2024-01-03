@@ -66,8 +66,8 @@
   # };
 
   # Set your time zone.
-  # time.timeZone = "America/Los_Angeles";
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -90,22 +90,22 @@
   #   fcitx5-chinese-addons
   #   fcitx5-rime
   # ];
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-rime
-      fcitx5-configtool
-      fcitx5-chinese-addons
-      fcitx5-gtk
-    ];
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-rime
+  #     fcitx5-configtool
+  #     fcitx5-chinese-addons
+  #     fcitx5-gtk
+  #   ];
 
-    # 我现在用 ibus
-    # enabled = "ibus";
-    # ibus.engines = with pkgs.ibus-engines; [
-    #   libpinyin
-    #   rime
-    # ];
-  };
+  #   # 我现在用 ibus
+  #   # enabled = "ibus";
+  #   # ibus.engines = with pkgs.ibus-engines; [
+  #   #   libpinyin
+  #   #   rime
+  #   # ];
+  # };
 
   # Enable fwupd
   services.fwupd.enable = true;
