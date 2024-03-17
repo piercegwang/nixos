@@ -66,8 +66,9 @@
   # };
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-  # time.timeZone = "America/New_York";
+  # time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/New_York";
+  # time.timeZone = "America/Mexico_City";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -85,6 +86,24 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  fonts.fontconfig.defaultFonts = {
+      monospace = [
+        "DejaVu Sans Mono"
+        "WenQuanYi Micro Hei Mono"
+      ];
+      sansSerif = [
+        "DejaVu Sans"
+        "WenQuanYi Micro Hei"
+      ];
+      serif = [
+        "DejaVu Serif"
+        "WenQuanYi Micro Hei"
+      ];
+  };
+
+  # i18n.inputMethod.enabled = "fcitx5";
+
+
   # i18n.inputMethod.enabled = "fcitx5";
   # i18n.inputMethod.fcitx5.addons = with pkgs; [
   #   fcitx5-chinese-addons
@@ -99,12 +118,12 @@
   #     fcitx5-gtk
   #   ];
 
-  #   # 我现在用 ibus
-  #   # enabled = "ibus";
-  #   # ibus.engines = with pkgs.ibus-engines; [
-  #   #   libpinyin
-  #   #   rime
-  #   # ];
+    # 我现在用 ibus
+    # enabled = "ibus";
+    # ibus.engines = with pkgs.ibus-engines; [
+    #   libpinyin
+    #   rime
+    # ];
   # };
 
   # Enable fwupd

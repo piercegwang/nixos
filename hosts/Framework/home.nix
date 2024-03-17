@@ -67,6 +67,13 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
+
+    # Fonts
+    wqy_microhei
+    source-code-pro
+    noto-fonts-cjk-sans
+    dejavu_fonts
+
     neofetch
     # nnn # terminal file manager
 
@@ -113,6 +120,8 @@
     # vlc
     mpv
     # keyd
+    lmms
+    audacity
 
     # -- GNOME
     # gnome-randr
