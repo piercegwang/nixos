@@ -86,20 +86,20 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  fonts.fontconfig.defaultFonts = {
-      monospace = [
-        "DejaVu Sans Mono"
-        "WenQuanYi Micro Hei Mono"
-      ];
-      sansSerif = [
-        "DejaVu Sans"
-        "WenQuanYi Micro Hei"
-      ];
-      serif = [
-        "DejaVu Serif"
-        "WenQuanYi Micro Hei"
-      ];
-  };
+  # fonts.fontconfig.defaultFonts = {
+  #     monospace = [
+  #       "DejaVu Sans Mono"
+  #       "WenQuanYi Micro Hei Mono"
+  #     ];
+  #     sansSerif = [
+  #       "DejaVu Sans"
+  #       "WenQuanYi Micro Hei"
+  #     ];
+  #     serif = [
+  #       "DejaVu Serif"
+  #       "WenQuanYi Micro Hei"
+  #     ];
+  # };
 
   # i18n.inputMethod.enabled = "fcitx5";
 

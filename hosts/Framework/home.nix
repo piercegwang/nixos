@@ -69,10 +69,10 @@
 
 
     # Fonts
-    wqy_microhei
+    # wqy_microhei
     source-code-pro
-    noto-fonts-cjk-sans
-    dejavu_fonts
+    # noto-fonts-cjk-sans
+    # dejavu_fonts
 
     neofetch
     # nnn # terminal file manager
@@ -253,8 +253,8 @@
     handbrake
     obs-studio
     whatsapp-for-linux
-    ollama
-    denaro
+    # ollama
+    # denaro
 
     # Window manager
     # bspwm
