@@ -4,12 +4,7 @@
 
 { config, pkgs, pkgs-stable, ... }:
 
-let
-  jovian-nixos = pkgs.fetchGit {
-    url = "https://github.com/Jovian-Experiments/Jovian-NixOS";
-    ref = "development";
-  };
-in {
+{
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -18,7 +13,15 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      "${jovian-nixos}/modules"
+      (
+        # Put the most recent revision here:
+        let revision = "1171169117f63f1de9ef2ea36efd8dcf377c6d5a"; in
+        builtins.fetchTarball {
+          url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
+          # Update the hash as needed:
+          sha256 = "sha256:0hwmb5bpjrc4dv20qgjc1hgywp3frbyf5m9zp2gb20sc5f6la5vm";
+        } + "/modules"
+      )
     ];
 
   # Bootloader.
@@ -182,11 +185,11 @@ in {
     };
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
+  # programs.steam = {
+  #   enable = true;
+  #   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
