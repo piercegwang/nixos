@@ -4,7 +4,12 @@
 
 { config, pkgs, pkgs-stable, ... }:
 
-{
+let
+  jovian-nixos = builtins.fetchGit {
+  url = "https://github.com/Jovian-Experiments/Jovian-NixOS";
+  ref = "development";
+  };
+in {
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -12,6 +17,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      "${jovian-nixos}/modules"
     ];
 
   # Bootloader.
