@@ -76,4 +76,35 @@ in
         }
       ];
     };
+
+    SteamDeck = lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit inputs system user;
+        host = {
+          hostName = "SteamDeck";
+        };
+      };
+
+      modules = [
+        ./SteamDeck
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit user stable-2305;
+            host = {
+              hostName = "piercewang";
+            };
+          };
+          home-manager.users.${user} = {
+            imports = [(import ./SteamDeck/home.nix)];
+          };
+          # optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+        }
+      ];
+    };
+
   }
