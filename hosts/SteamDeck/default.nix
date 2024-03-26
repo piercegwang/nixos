@@ -170,6 +170,7 @@
     zerotierone
     packagekit
     # steamdeck-firmware
+    steam
   ];
 
 
