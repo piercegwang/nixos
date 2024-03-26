@@ -174,6 +174,7 @@
 
     # Emacs dependencies
     cmake
+    gtk3
     ditaa
     gcc_multi
     gnumake
@@ -258,8 +259,8 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos#Framework";
-      nixtest = "sudo nixos-rebuild test --flake /home/piercewang/.config/nixos#Framework";
+      update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos#SteamDeck";
+      nixtest = "sudo nixos-rebuild test --flake /home/piercewang/.config/nixos#SteamDeck";
     };
     # histSize = 10000;
     # histFile = "${config.xdg.dataHome}/zsh/history";

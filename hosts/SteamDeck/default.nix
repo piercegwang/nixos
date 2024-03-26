@@ -104,7 +104,7 @@
       # desktopManager.gnome.enable = true;
       # need unstable for this:
       displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
+      desktopManager.plasma6.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
       # xkbVariant = "";
@@ -146,6 +146,7 @@
     isNormalUser = true;
     description = "Pierce Wang";
     extraGroups = [ "networkmanager" "wheel" ];
+    initialPassword = "initial_password";
     # packages = with pkgs; [
     # ];
   };
