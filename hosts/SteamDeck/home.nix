@@ -66,6 +66,7 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
+    maliit-keyboard
 
 
     # Fonts
@@ -127,7 +128,7 @@
     # gnome-randr
 
     # -- KDE Plasma
-    kscreen
+    # libsForQt5.kscreen
 
     # Development
     python311
@@ -174,7 +175,7 @@
 
     # Emacs dependencies
     cmake
-    gtk3
+    gtk3 # (might not need this)
     ditaa
     gcc_multi
     gnumake
