@@ -5,5 +5,5 @@ I have a lot of ideas as to where this repo could go (perhaps having two configu
 ** Evaluation and setup
 
 ```bash
-sudo nixos-rebuild switch --flake .#<Framework|ThinkPad>
+sudo nixos-rebuild switch --flake .#<Framework|ThinkPad|SteamDeck>
 ```
