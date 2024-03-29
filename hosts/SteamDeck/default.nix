@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-stable, ... }:
+{ lib, config, pkgs, pkgs-stable, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -96,6 +96,7 @@
   services.fwupd.enable = true;
 
   services = {
+    desktopManager.plasma6.enable = true;
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -104,7 +105,6 @@
       # desktopManager.gnome.enable = true;
       # need unstable for this:
       displayManager.sddm.enable = true;
-      desktopManager.plasma6.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
       # xkbVariant = "";
@@ -118,25 +118,39 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   security.pki.certificateFiles = [
     ../../modules/nextcloud/nc-selfsigned.pem
   ];
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  # # Enable sound with pipewire.
+  # sound.enable = true;
+  # # hardware.pulseaudio.enable = false;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   # If you want to use JACK applications, uncomment this
+  #   #jack.enable = true;
+
+  #   # use the example session manager (no others are packaged yet so this is enabled by default,
+  #   # no need to redefine it in your config for now)
+  #   #media-session.enable = true;
+  # };
+
+  # # from https://nixos.wiki/wiki/PipeWire
+  # services.pipewire.wireplumber.configPackages = [
+  #   (pkgs.writeTextDir "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
+  #     bluez_monitor.properties = {
+  #       ["bluez5.enable-sbc-xq"] = true,
+  #       ["bluez5.enable-msbc"] = true,
+  #       ["bluez5.enable-hw-volume"] = true,
+  #       ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+  #     }
+  #   '')
+  # ];
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -155,11 +169,22 @@
   nixpkgs.config.allowUnfree = true;
 
   jovian = {
-    steam.enable = true;
+    decky-loader = {
+      user = "piercewang";
+    };
+    steam = {
+      enable = true;
+      autoStart = false;
+      user = "piercewang";
+      desktopSession = "plasma";
+    };
     devices.steamdeck = {
       enable = true;
+      enableSoundSupport = true;
     };
   };
+
+  services.pipewire.wireplumber.package = lib.mkForce pkgs.wireplumber;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -170,7 +195,7 @@
     zerotierone
     packagekit
     # steamdeck-firmware
-    steam
+    # steam
   ];
 
 
