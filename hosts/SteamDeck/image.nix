@@ -21,4 +21,9 @@
   boot.supportedFilesystems = lib.mkForce [ "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" ];
 
   jovian.devices.steamdeck.enable = true;
+
+  # generate using
+  # NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/ea503179c5efa2d2b7083e212352e2383e444459.tar.gz nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./image.nix -o result"
+  # from https://nix.dev/tutorials/nixos/building-bootable-iso-image.html
+
 }
