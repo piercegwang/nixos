@@ -126,9 +126,6 @@
     # -- GNOME
     # gnome-randr
 
-    # -- KDE Plasma
-    kscreen
-
     # Development
     python311
     python311Packages.pip
