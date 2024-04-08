@@ -3,7 +3,7 @@
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     (
       # Put the most recent revision here:
-      let revision = "1171169117f63f1de9ef2ea36efd8dcf377c6d5a"; in
+      let revision = "9b0e8712f1a9e5569036b227d539b745fcf54aad"; in
       builtins.fetchTarball {
         url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
         # Update the hash as needed:

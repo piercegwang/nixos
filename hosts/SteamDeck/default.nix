@@ -15,7 +15,7 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "1171169117f63f1de9ef2ea36efd8dcf377c6d5a"; in
+        let revision = "9b0e8712f1a9e5569036b227d539b745fcf54aad"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
@@ -105,6 +105,7 @@
       # desktopManager.gnome.enable = true;
       # need unstable for this:
       displayManager.sddm.enable = true;
+      # desktopManager.xfce.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
       # xkbVariant = "";
@@ -176,7 +177,8 @@
       enable = true;
       autoStart = false;
       user = "piercewang";
-      desktopSession = "plasma";
+      # desktopSession = "plasma";
+      desktopSession = "gnome";
     };
     devices.steamdeck = {
       enable = true;
@@ -195,7 +197,7 @@
     zerotierone
     packagekit
     # steamdeck-firmware
-    # steam
+    steam
   ];
 
 

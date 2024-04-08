@@ -195,6 +195,7 @@
     # airshipper
     # minetest
     # endless-sky
+    prismlauncher
 
     # General Apps
     bitwarden
@@ -204,6 +205,7 @@
     musescore
     nextcloud-client
     signal-desktop
+    slack
     spotify
     # scribus
     drive
