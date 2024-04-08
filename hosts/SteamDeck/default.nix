@@ -15,11 +15,11 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "9b0e8712f1a9e5569036b227d539b745fcf54aad"; in
+        let revision = "ec53086c76303dc8880fa7ba06c45abcae8b3398"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
-          sha256 = "sha256:0hwmb5bpjrc4dv20qgjc1hgywp3frbyf5m9zp2gb20sc5f6la5vm";
+          sha256 = "sha256:1hm1s0hls5slanij3cal1j8z2b9as3hhbh7r8yfnk8qrnh3n9558";
         } + "/modules"
       )
     ];
@@ -104,7 +104,14 @@
       # displayManager.gdm.enable = true;
       # desktopManager.gnome.enable = true;
       # need unstable for this:
-      displayManager.sddm.enable = true;
+      displayManager.sddm = {
+        enable = true;
+        settings = {
+          General = {
+            InputMethod = "qtvirtualkeyboard";
+          };
+        };
+      };
       # desktopManager.xfce.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
@@ -197,9 +204,8 @@
     zerotierone
     packagekit
     # steamdeck-firmware
-    steam
+    qt6.qtvirtualkeyboard
   ];
-
 
   # What is this for?
   # systemd.packages = with pkgs; [
@@ -226,6 +232,11 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    extest.enable = true;
   };
 
   # List services that you want to enable:
