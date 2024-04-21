@@ -15,23 +15,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs = inputs @ {self, nixpkgs, nixpkgs-2305-stable, home-manager, nixos-hardware, ...}:
     let                                                                     # Variables that can be used in the config files.
+      inherit (self) outputs;
       user = "piercewang";
     in                                                                      # Use above variables in ...
       {
+
+        overlays = import ./overlays {inherit inputs;};
         nixosConfigurations = (
          import ./hosts {
             inherit (nixpkgs) lib;
-            inherit inputs user nixpkgs nixpkgs-2305-stable home-manager nixos-hardware;
+            inherit inputs outputs user nixpkgs nixpkgs-2305-stable home-manager nixos-hardware;
           }
         );
       };

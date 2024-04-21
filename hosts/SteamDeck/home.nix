@@ -1,6 +1,12 @@
 { config, pkgs, stable-2305, ... }:
 
 {
+
+  # imports =
+  #   [
+  #     ../../modules/opensd
+  #   ];
+
   home.username = "piercewang";
   home.homeDirectory = "/home/piercewang";
 
@@ -173,7 +179,7 @@
     # pciutils # lspci
     # usbutils # lsusb
 
-    # Emacs dependencies
+   # Emacs dependencies
     cmake
     gtk3 # (might not need this)
     ditaa
@@ -200,19 +206,42 @@
     # General Apps
     bitwarden
     brave
+    qutebrowser
     emacs29
     firefox
     musescore
     nextcloud-client
     signal-desktop
+    zoom-us
     slack
     spotify
     # scribus
     drive
     handbrake
+    xournalpp
+    pdftk
+    obs-studio
+
+    # Steam Deck
+    opensd
   ];
 
   services.emacs.enable = false;
+  # services.opensd.enable = true;
+  # See: https://codeberg.org/OpenSD/opensd/src/branch/master/systemd/opensd.service
+  systemd.user.services.opensd = {
+    Unit = {
+      Description = "OpenSD Steam Deck userspace input driver daemon";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.opensd}/bin/opensdd -l info";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
 
   # xsession.windowManager.bspwm.enable = true;
 

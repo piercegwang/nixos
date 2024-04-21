@@ -1,4 +1,4 @@
-{ lib, inputs, user, nixpkgs, nixpkgs-2305-stable, home-manager, nixos-hardware, ... }:
+{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
@@ -80,7 +80,7 @@ in
     SteamDeck = lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit inputs system user;
+        inherit outputs inputs system user;
         host = {
           hostName = "SteamDeck";
         };

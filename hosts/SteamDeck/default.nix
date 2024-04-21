@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, config, pkgs, pkgs-stable, ... }:
+{ lib, outputs, config, pkgs, pkgs-stable, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -22,6 +22,7 @@
           sha256 = "sha256:1hm1s0hls5slanij3cal1j8z2b9as3hhbh7r8yfnk8qrnh3n9558";
         } + "/modules"
       )
+      # ../../modules/opensd
     ];
 
   # Bootloader.
@@ -174,7 +175,12 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+    ];
+    config.allowUnfree = true;
+  };
 
   jovian = {
     decky-loader = {
