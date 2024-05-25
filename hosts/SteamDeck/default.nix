@@ -15,11 +15,11 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "ec53086c76303dc8880fa7ba06c45abcae8b3398"; in
+        let revision = "8d91e8c23b14819781403c47de3c5bada7db2d65"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
-          sha256 = "sha256:1hm1s0hls5slanij3cal1j8z2b9as3hhbh7r8yfnk8qrnh3n9558";
+          sha256 = "sha256:1z5yy4fkffzrz4f07q55wnn54vk2i3lzccdvcmamd0fpbcxsy5qr";
         } + "/modules"
       )
       # ../../modules/opensd
@@ -73,8 +73,8 @@
   # };
 
   # Set your time zone.
-  # time.timeZone = "America/Los_Angeles";
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/New_York";
   # time.timeZone = "America/Mexico_City";
 
   # Select internationalisation properties.
@@ -98,21 +98,20 @@
 
   services = {
     desktopManager.plasma6.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      settings = {
+        General = {
+          InputMethod = "qtvirtualkeyboard";
+        };
+      };
+    };
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
       # Enable the GNOME Desktop Environment.
       # displayManager.gdm.enable = true;
       # desktopManager.gnome.enable = true;
-      # need unstable for this:
-      displayManager.sddm = {
-        enable = true;
-        settings = {
-          General = {
-            InputMethod = "qtvirtualkeyboard";
-          };
-        };
-      };
       # desktopManager.xfce.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
@@ -130,36 +129,6 @@
   security.pki.certificateFiles = [
     ../../modules/nextcloud/nc-selfsigned.pem
   ];
-
-  # # Enable sound with pipewire.
-  # sound.enable = true;
-  # # hardware.pulseaudio.enable = false;
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   # If you want to use JACK applications, uncomment this
-  #   #jack.enable = true;
-
-  #   # use the example session manager (no others are packaged yet so this is enabled by default,
-  #   # no need to redefine it in your config for now)
-  #   #media-session.enable = true;
-  # };
-
-  # # from https://nixos.wiki/wiki/PipeWire
-  # services.pipewire.wireplumber.configPackages = [
-  #   (pkgs.writeTextDir "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
-  #     bluez_monitor.properties = {
-  #       ["bluez5.enable-sbc-xq"] = true,
-  #       ["bluez5.enable-msbc"] = true,
-  #       ["bluez5.enable-hw-volume"] = true,
-  #       ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-  #     }
-  #   '')
-  # ];
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -190,8 +159,7 @@
       enable = true;
       autoStart = false;
       user = "piercewang";
-      # desktopSession = "plasma";
-      desktopSession = "gnome";
+      desktopSession = "plasma";
     };
     devices.steamdeck = {
       enable = true;
@@ -199,7 +167,7 @@
     };
   };
 
-  services.pipewire.wireplumber.package = lib.mkForce pkgs.wireplumber;
+  # services.pipewire.wireplumber.package = lib.mkForce pkgs.wireplumber;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -240,6 +208,7 @@
     enableSSHSupport = true;
   };
 
+  # Enable steam keyboard on wayland
   programs.steam = {
     enable = true;
     extest.enable = true;

@@ -198,10 +198,11 @@
     figlet
 
     # Gaming
-    # airshipper
+    airshipper
     # minetest
     # endless-sky
     prismlauncher
+    heroic
 
     # General Apps
     bitwarden
@@ -223,25 +224,25 @@
     obs-studio
 
     # Steam Deck
-    opensd
+    # opensd
   ];
 
   services.emacs.enable = false;
   # services.opensd.enable = true;
   # See: https://codeberg.org/OpenSD/opensd/src/branch/master/systemd/opensd.service
-  systemd.user.services.opensd = {
-    Unit = {
-      Description = "OpenSD Steam Deck userspace input driver daemon";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.opensd}/bin/opensdd -l info";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-  };
+  # systemd.user.services.opensd = {
+  #   Unit = {
+  #     Description = "OpenSD Steam Deck userspace input driver daemon";
+  #   };
+  #   Install = {
+  #     WantedBy = [ "default.target" ];
+  #   };
+  #   Service = {
+  #     ExecStart = "${pkgs.opensd}/bin/opensdd -l info";
+  #     Restart = "on-failure";
+  #     RestartSec = 5;
+  #   };
+  # };
 
   # xsession.windowManager.bspwm.enable = true;
 
