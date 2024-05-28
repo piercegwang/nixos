@@ -222,6 +222,7 @@
     xournalpp
     pdftk
     obs-studio
+    droidcam
 
     # Steam Deck
     # opensd
