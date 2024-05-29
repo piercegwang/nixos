@@ -73,7 +73,8 @@
   # };
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Asia/Taipei";
   # time.timeZone = "America/New_York";
   # time.timeZone = "America/Mexico_City";
 
@@ -180,21 +181,21 @@
     packagekit
     # steamdeck-firmware
     qt6.qtvirtualkeyboard
-    linuxKernel.packages.linux_zen.v4l2loopback
+    # linuxKernel.packages.linux_zen.v4l2loopback
   ];
 
-  boot.extraModulePackages = with config.boot.kernelPackages;
-    [ v4l2loopback.out ];
+  # boot.extraModulePackages = with config.boot.kernelPackages;
+  #   [ v4l2loopback.out ];
 
-  boot.kernelModules = [ "v4l2loopback" ];
+  # boot.kernelModules = [ "v4l2loopback" ];
 
-  # Set initial kernel module settings
-  boot.extraModprobeConfig = ''
-    # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
-    # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
-    # https://github.com/umlaeute/v4l2loopback
-    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
-  '';
+  # # Set initial kernel module settings
+  # boot.extraModprobeConfig = ''
+  #   # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
+  #   # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
+  #   # https://github.com/umlaeute/v4l2loopback
+  #   options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  # '';
 
   # What is this for?
   # systemd.packages = with pkgs; [
