@@ -94,6 +94,21 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  i18n = {
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-gtk
+          # fcitx5-chinese-addons
+          libsForQt5.fcitx5-chinese-addons
+          fcitx5-rime
+        ];
+      };
+    };
+  };
+
   # Enable fwupd
   services.fwupd.enable = true;
 
