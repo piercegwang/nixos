@@ -34,6 +34,7 @@
     settings = {
       General = {
         ControllerMode = "bredr";
+        Enable = "Source,Sink,Media,Socket"; # Fixes connecting Bluetooth Earphones
       };
     };
   };
@@ -73,8 +74,8 @@
   # };
 
   # Set your time zone.
-  # time.timeZone = "America/Los_Angeles";
-  time.timeZone = "Asia/Taipei";
+  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "Asia/Taipei";
   # time.timeZone = "America/New_York";
   # time.timeZone = "America/Mexico_City";
 
