@@ -4,14 +4,16 @@
   # environment.etc."nextcloud-admin-pass".text = "initialpassword"; # use to make initial account
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud27;
+    package = pkgs.nextcloud29;
     hostName = "10.147.18.1";
     database.createLocally = true;
+    settings = {
+      trusted_domains = [ "10.147.18.1" ];
+    };
     config = {
       dbtype = "pgsql";
-      # extraTrustedDomains = [ "10.147.18.1" ];
-      # adminuser = "root";
-      # adminpassFile = "/etc/nextcloud-admin-pass";
+      adminuser = "root";
+      adminpassFile = "/etc/nextcloud-root-pass";
     };
     phpOptions = {
       upload_max_filesize = lib.mkForce "1G";

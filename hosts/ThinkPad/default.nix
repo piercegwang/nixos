@@ -42,13 +42,18 @@
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.wireless.environmentFile = "/home/piercewang/.config/nixos/common/secrets.env";
   # networking.wireless.environmentFile = "/run/secrets/secrets.env";
-  networking.wireless.networks."Columbia U Secure" = {
+  #networking.wireless.networks."Columbia U Secure" = {
+  #  auth = ''
+  #  key_mgmt=WPA-EAP
+  #  eap=PEAP
+  #  phase2="auth=MSCHAPV2"
+  #  identity="@COLUMBIAUSECURE_IDENT@"
+  #  password="@COLUMBIAUSECURE_PSK@"
+  #  '';
+  #};
+  networking.wireless.networks."cucenter" = {
     auth = ''
-    key_mgmt=WPA-EAP
-    eap=PEAP
-    phase2="auth=MSCHAPV2"
-    identity="@COLUMBIAUSECURE_IDENT@"
-    password="@COLUMBIAUSECURE_PSK@"
+    psk="@CUCENTER_PSK@"
     '';
   };
 

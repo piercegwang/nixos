@@ -109,6 +109,7 @@
     libreoffice-fresh
     home-manager
     # keyd
+    tmux
 
     # Development
     python311
