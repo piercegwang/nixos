@@ -3,7 +3,7 @@
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     (
       # Put the most recent revision here:
-      let revision = "8d91e8c23b14819781403c47de3c5bada7db2d65"; in
+      let revision = "f27db3a9a8c21a65c1ef50cacca3ef2bfff04cb9"; in
       builtins.fetchTarball {
         url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
         # Update the hash as needed:
@@ -23,7 +23,7 @@
   jovian.devices.steamdeck.enable = true;
 
   # generate using
-  # NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/6990439a4a194ed8f6f7a4a594740dc01153cf91.tar.gz nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./image.nix -o result"
+  # NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/05d7f5e6d9a71db7047da5a28425b5b51feeb256.tar.gz nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./image.nix -o result"
   # from https://nix.dev/tutorials/nixos/building-bootable-iso-image.html
 
 }

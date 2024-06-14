@@ -1,4 +1,4 @@
-{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, home-manager, nixos-hardware, ... }:
+{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, nixpkgs-2405-stable, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
@@ -15,6 +15,10 @@ let
   # pkgs = nixpkgs.legacyPackages.${system} {
   #   config.allowUnfree = true;
   # };
+  stable-2405 = import nixpkgs-2405-stable {
+    inherit system;
+    config.allowUnfree = true;                              # Allow proprietary software
+  };
 
 in
   {
@@ -94,7 +98,7 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit user stable-2305;
+            inherit user stable-2305 stable-2405;
             host = {
               hostName = "piercewang";
             };

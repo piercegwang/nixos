@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, outputs, config, pkgs, pkgs-stable, ... }:
+{ lib, outputs, config, pkgs, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -15,7 +15,7 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "8d91e8c23b14819781403c47de3c5bada7db2d65"; in
+        let revision = "326c1ab2b816f520d298b7a4319a0b50cde01c48"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:

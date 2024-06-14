@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, ... }:
+{ config, pkgs, stable-2305, stable-2405, ... }:
 
 {
 
@@ -177,7 +177,7 @@
     # lm_sensors # for `sensors` command
     # ethtool
     # pciutils # lspci
-    # usbutils # lsusb
+    usbutils # lsusb
 
    # Emacs dependencies
     cmake
@@ -199,7 +199,7 @@
 
     # Gaming
     airshipper
-    # minetest
+    minetest
     # endless-sky
     prismlauncher
     heroic
@@ -218,7 +218,7 @@
     spotify
     # scribus
     drive
-    handbrake
+    stable-2405.handbrake
     xournalpp
     pdftk
     obs-studio
@@ -226,6 +226,9 @@
 
     # Steam Deck
     # opensd
+
+    # Language Models
+    # ollama
   ];
 
   services.emacs.enable = false;
