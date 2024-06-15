@@ -15,11 +15,11 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "326c1ab2b816f520d298b7a4319a0b50cde01c48"; in
+        let revision = "f02a01aab60c68b7898043c2e7f5bc97c93fb07b"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
-          sha256 = "sha256:1z5yy4fkffzrz4f07q55wnn54vk2i3lzccdvcmamd0fpbcxsy5qr";
+          sha256 = "sha256:1rhpcz8sa37zgg7czhql32i6zhqw4d5wykmhykgjn652ayaj9sxw";
         } + "/modules"
       )
       # ../../modules/opensd
@@ -198,20 +198,29 @@
     # steamdeck-firmware
     qt6.qtvirtualkeyboard
     # linuxKernel.packages.linux_zen.v4l2loopback
+
+    # Language Models
+    ollama
+    # open-webui
   ];
 
-  # boot.extraModulePackages = with config.boot.kernelPackages;
-  #   [ v4l2loopback.out ];
+  services = {
+    ollama.enable = true;
+    # open-webui.enable = true;
+  };
 
-  # boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = with config.boot.kernelPackages;
+    [ v4l2loopback.out ];
 
-  # # Set initial kernel module settings
-  # boot.extraModprobeConfig = ''
-  #   # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
-  #   # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
-  #   # https://github.com/umlaeute/v4l2loopback
-  #   options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
-  # '';
+  boot.kernelModules = [ "v4l2loopback" ];
+
+  # Set initial kernel module settings
+  boot.extraModprobeConfig = ''
+    # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
+    # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
+    # https://github.com/umlaeute/v4l2loopback
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  '';
 
   # What is this for?
   # systemd.packages = with pkgs; [
