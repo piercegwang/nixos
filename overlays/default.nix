@@ -10,14 +10,20 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+    steamdeck-dsp = if prev ? steamdeck-dsp then
+      prev.steamdeck-dsp.overrideAttrs (oldAttrs: rec {
+        patches = oldAttrs.patches or [] ++ [ ../hosts/SteamDeck/modifications/filter-chain.patch ];
+      })
+    else
+      null;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
+  # unstable-packages = final: _prev: {
+  #   unstable = import inputs.nixpkgs-unstable {
+  #     system = final.system;
+  #     config.allowUnfree = true;
+  #   };
+  # };
 }

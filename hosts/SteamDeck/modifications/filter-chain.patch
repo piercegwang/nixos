@@ -1,0 +1,95 @@
+Only in steamdeck-dsp-0.49_modified: filter-chain.diff
+diff --color -ur --no-dereference steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf	2024-05-15 12:36:11.000000000 -0700
++++ steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf	2024-07-02 14:40:51.107315632 -0700
+@@ -7,20 +7,20 @@
+     {   name = libpipewire-module-filter-chain
+         args = {
+             node.name =  "filter-chain-source"
+-            node.description =  "Filter Chain Source"
+-            media.name =  "Filter Chain Source"
++            node.description =  "Filter Chain Source (no VAD)"
++            media.name =  "Filter Chain Source (no VAD)"
+             filter.graph = {
+                 nodes = [
+-                    {
+-                        type = ladspa
+-                        name = rnnoise
+-                        plugin = /usr/lib/ladspa/librnnoise_ladspa.so
+-                        label = noise_suppressor_stereo
+-                        control = {
+-                            "VAD Threshold (%)" = 23.0
+-                            "VAD Grace Period (ms)" = 200
+-                        }
+-                    }
++                    # {
++                    #     type = ladspa
++                    #     name = rnnoise
++                    #     plugin = /usr/lib/ladspa/librnnoise_ladspa.so
++                    #     label = noise_suppressor_stereo
++                    #     control = {
++                    #         "VAD Threshold (%)" = 23.0
++                    #         "VAD Grace Period (ms)" = 200
++                    #     }
++                    # }
+                     {
+                         type = lv2
+                         name = valve_deck_microphone
+@@ -29,8 +29,8 @@
+                     }
+                 ]
+                 links = [
+-                    { output = "rnnoise:Output (L)" input = "valve_deck_microphone:in0" }
+-                    { output = "rnnoise:Output (R)" input = "valve_deck_microphone:in1" }
++                    # { output = "rnnoise:Output (L)" input = "valve_deck_microphone:in0" }
++                    # { output = "rnnoise:Output (R)" input = "valve_deck_microphone:in1" }
+                 ]
+             }
+             capture.props = {
+diff --color -ur --no-dereference steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf	2024-05-15 12:36:11.000000000 -0700
++++ steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf	2024-07-02 14:10:13.536370578 -0700
+@@ -7,20 +7,20 @@
+     {   name = libpipewire-module-filter-chain
+         args = {
+             node.name =  "filter-chain-source"
+-            node.description =  "Filter Chain Source"
+-            media.name =  "Filter Chain Source"
++            node.description =  "Filter Chain Source (no VAD)"
++            media.name =  "Filter Chain Source (no VAD)"
+             filter.graph = {
+                 nodes = [
+-                    {
+-                        type = ladspa
+-                        name = rnnoise
+-                        plugin = /usr/lib/ladspa/librnnoise_ladspa.so
+-                        label = noise_suppressor_stereo
+-                        control = {
+-                            "VAD Threshold (%)" = 23.0
+-                            "VAD Grace Period (ms)" = 200
+-                        }
+-                    }
++                    # {
++                    #     type = ladspa
++                    #     name = rnnoise
++                    #     plugin = /usr/lib/ladspa/librnnoise_ladspa.so
++                    #     label = noise_suppressor_stereo
++                    #     control = {
++                    #         "VAD Threshold (%)" = 23.0
++                    #         "VAD Grace Period (ms)" = 200
++                    #     }
++                    # }
+                     {
+                         type = lv2
+                         name = valve_deck_microphone
+@@ -29,8 +29,8 @@
+                     }
+                 ]
+                 links = [
+-                    { output = "rnnoise:Output (L)" input = "valve_deck_microphone:in0" }
+-                    { output = "rnnoise:Output (R)" input = "valve_deck_microphone:in1" }
++                    { output = "valve_deck_microphone:Output (L)" input = "valve_deck_microphone:in0" }
++                    { output = "valve_deck_microphone:Output (R)" input = "valve_deck_microphone:in1" }
+                 ]
+             }
+             capture.props = {
