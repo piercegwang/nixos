@@ -97,6 +97,7 @@
     # exa # A modern replacement for ‘ls’
     # fzf # A command-line fuzzy finder
     dbus
+    parallel-disk-usage
 
     # networking tools
     # mtr # A network diagnostic tool
@@ -298,6 +299,7 @@
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos#SteamDeck";
       nixtest = "sudo nixos-rebuild test --flake /home/piercewang/.config/nixos#SteamDeck";
+      pdfletter = "~/.config/nixos/common/scripts/pdf_letter.sh";
     };
     # histSize = 10000;
     # histFile = "${config.xdg.dataHome}/zsh/history";

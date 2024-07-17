@@ -74,9 +74,9 @@
   # };
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
-  # time.timeZone = "America/New_York";
+  time.timeZone = "America/New_York";
   # time.timeZone = "America/Mexico_City";
 
   # Select internationalisation properties.
