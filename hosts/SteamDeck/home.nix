@@ -112,6 +112,7 @@
 
     # misc
     file
+    localsend
     which
     tree
     # gnused
@@ -125,7 +126,7 @@
     libreoffice-fresh
     wireshark
     home-manager
-    # vlc
+    vlc
     mpv
     # keyd
     lmms
@@ -300,6 +301,7 @@
       update = "sudo nixos-rebuild switch --flake /home/piercewang/.config/nixos#SteamDeck";
       nixtest = "sudo nixos-rebuild test --flake /home/piercewang/.config/nixos#SteamDeck";
       pdfletter = "~/.config/nixos/common/scripts/pdf_letter.sh";
+      pdfa4 = "~/.config/nixos/common/scripts/pdf_a4paper.sh";
     };
     # histSize = 10000;
     # histFile = "${config.xdg.dataHome}/zsh/history";
