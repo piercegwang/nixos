@@ -117,7 +117,7 @@
     libreoffice-fresh
     wireshark
     home-manager
-    # vlc
+    vlc
     mpv
     # keyd
     lmms
@@ -201,6 +201,9 @@
     # ethtool
     # pciutils # lspci
     # usbutils # lsusb
+    # wineWowPackages.stable
+    wineWowPackages.staging
+    # winetricks
 
     # Emacs dependencies
     cmake
@@ -234,6 +237,7 @@
     betterdiscord-installer
     bitwarden
     brave
+    qutebrowser
     discord
     emacs29
     firefox
@@ -242,6 +246,7 @@
     # nodePackages_latest.musescore-downloader
     # nodejs_20
     signal-desktop
+    sigtop
     slack
     spotify
     zoom-us

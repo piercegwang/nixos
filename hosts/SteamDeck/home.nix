@@ -5,6 +5,7 @@
   # imports =
   #   [
   #     ../../modules/opensd
+  #     ../../modules/bluetooth-kill
   #   ];
 
   home.username = "piercewang";

@@ -130,6 +130,8 @@
   services.fwupd.enable = true;
 
   services = {
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -137,8 +139,6 @@
       # displayManager.gdm.enable = true;
       # desktopManager.gnome.enable = true;
       # need unstable for this:
-      displayManager.sddm.enable = true;
-      desktopManager.plasma6.enable = true;
       # Configure keymap in X11
       # layout = "us,cn";
       # xkbVariant = "";
@@ -156,7 +156,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.pki.certificateFiles = [
