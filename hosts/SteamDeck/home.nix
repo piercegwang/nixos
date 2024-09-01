@@ -216,6 +216,7 @@
     musescore
     nextcloud-client
     signal-desktop
+    whatsapp-for-linux
     zoom-us
     slack
     spotify
@@ -225,7 +226,8 @@
     xournalpp
     pdftk
     obs-studio
-    droidcam
+    # droidcam
+    # waydroid # android emulation
 
     # Steam Deck
     # opensd

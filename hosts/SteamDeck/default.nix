@@ -15,11 +15,11 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "f02a01aab60c68b7898043c2e7f5bc97c93fb07b"; in
+        let revision = "a679e3a0ef9d3d43639f7ba894069c43e2d39c2c"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
-          sha256 = "sha256:1rhpcz8sa37zgg7czhql32i6zhqw4d5wykmhykgjn652ayaj9sxw";
+          sha256 = "sha256:1vx13fsfjnvqm70jhkbcykaksjsq13fl7g013k9jm7ka744ndpc2";
         } + "/modules"
       )
       # ../../modules/opensd
@@ -97,7 +97,8 @@
 
   i18n = {
     inputMethod = {
-      enabled = "fcitx5";
+      enable = true;
+      type = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;
         addons = with pkgs; [
@@ -222,18 +223,21 @@
     # open-webui.enable = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages;
-    [ v4l2loopback.out ];
+  # virtualisation.waydroid.enable = true;
 
-  boot.kernelModules = [ "v4l2loopback" ];
+  # for droidcam
+  # boot.extraModulePackages = with config.boot.kernelPackages;
+  #   [ v4l2loopback.out ];
 
-  # Set initial kernel module settings
-  boot.extraModprobeConfig = ''
-    # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
-    # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
-    # https://github.com/umlaeute/v4l2loopback
-    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
-  '';
+  # boot.kernelModules = [ "v4l2loopback" ];
+
+  # # Set initial kernel module settings
+  # boot.extraModprobeConfig = ''
+  #   # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
+  #   # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
+  #   # https://github.com/umlaeute/v4l2loopback
+  #   options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  # '';
 
   # What is this for?
   # systemd.packages = with pkgs; [
