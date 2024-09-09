@@ -305,6 +305,8 @@
       nixtest = "sudo nixos-rebuild test --flake /home/piercewang/.config/nixos#SteamDeck";
       pdfletter = "~/.config/nixos/common/scripts/pdf_letter.sh";
       pdfa4 = "~/.config/nixos/common/scripts/pdf_a4paper.sh";
+      pdfcompress = "~/.config/nixos/common/scripts/pdf_compress.sh";
+      pdfsh = "~/.config/nixos/common/scripts/pdf_sheetmusic.sh";
     };
     # histSize = 10000;
     # histFile = "${config.xdg.dataHome}/zsh/history";
