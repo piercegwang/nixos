@@ -226,7 +226,9 @@
     xournalpp
     pdftk
     obs-studio
-    # droidcam
+    gimp-with-plugins
+    gimpPlugins.bimp
+    droidcam
     # waydroid # android emulation
 
     # Steam Deck
