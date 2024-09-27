@@ -9,6 +9,8 @@
     database.createLocally = true;
     settings = {
       trusted_domains = [ "10.147.18.1" ];
+      log_type = "file";
+      loglevel = 1;
     };
     config = {
       dbtype = "pgsql";

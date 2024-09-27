@@ -40,20 +40,25 @@
   # Pick only one of the below networking options.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.wireless.environmentFile = "/home/piercewang/.config/nixos/common/secrets.env";
+  networking.wireless.secretsFile = "/home/piercewang/.config/nixos/common/wireless.conf";
   # networking.wireless.environmentFile = "/run/secrets/secrets.env";
   #networking.wireless.networks."Columbia U Secure" = {
   #  auth = ''
   #  key_mgmt=WPA-EAP
   #  eap=PEAP
   #  phase2="auth=MSCHAPV2"
-  #  identity="@COLUMBIAUSECURE_IDENT@"
-  #  password="@COLUMBIAUSECURE_PSK@"
+  #  identity="ext:COLUMBIAUSECURE_IDENT"
+  #  password="ext:COLUMBIAUSECURE_PSK"
   #  '';
   #};
-  networking.wireless.networks."cucenter" = {
+  # networking.wireless.networks."cucenter" = {
+  #   auth = ''
+  #   psk="ext:CUCENTER_PSK"
+  #   '';
+  # };
+  networking.wireless.networks."SpectrumSetup-FF" = {
     auth = ''
-    psk="@CUCENTER_PSK@"
+    psk=ext:APT_205W6D_PSK
     '';
   };
 
