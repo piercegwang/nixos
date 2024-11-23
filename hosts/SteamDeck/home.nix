@@ -140,6 +140,7 @@
     # libsForQt5.kscreen
 
     # Development
+    # python310
     python311
     python311Packages.pip
     python311Packages.autopep8
@@ -152,6 +153,7 @@
     godot_4
     blender
     libresprite
+    nodejs_22
 
     # R stuff
     pandoc
@@ -203,7 +205,7 @@
     # Gaming
     airshipper
     minetest
-    # endless-sky
+    endless-sky
     prismlauncher
     heroic
 
@@ -211,12 +213,14 @@
     bitwarden
     brave
     qutebrowser
+    opera
     emacs29
     firefox
-    musescore
+    # musescore
     nextcloud-client
     signal-desktop
     whatsapp-for-linux
+    jami
     zoom-us
     slack
     spotify
