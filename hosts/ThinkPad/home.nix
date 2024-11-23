@@ -106,7 +106,7 @@
     oh-my-zsh
     zulu # Java
     openssl
-    libreoffice-fresh
+    # libreoffice-fresh
     home-manager
     # keyd
     tmux
