@@ -124,7 +124,7 @@
     oh-my-zsh
     zulu # Java
     openssl
-    libreoffice-fresh
+    # libreoffice-fresh
     wireshark
     home-manager
     vlc
@@ -220,7 +220,7 @@
     nextcloud-client
     signal-desktop
     whatsapp-for-linux
-    jami
+    # jami # not worth it
     zoom-us
     slack
     spotify

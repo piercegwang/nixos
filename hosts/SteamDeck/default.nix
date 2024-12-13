@@ -15,11 +15,11 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "a679e3a0ef9d3d43639f7ba894069c43e2d39c2c"; in
+        let revision = "98a61cf0708885abddebc6938ca7282928981d5e"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
-          sha256 = "sha256:1vx13fsfjnvqm70jhkbcykaksjsq13fl7g013k9jm7ka744ndpc2";
+          sha256 = "sha256:0f1c3ilr9rm6jrs3nfhvf8ni0jccfy1810s6a94iywa9416w1k7c";
         } + "/modules"
       )
       # ../../modules/opensd
@@ -118,6 +118,7 @@
     desktopManager.plasma6.enable = true;
     displayManager.sddm = {
       enable = true;
+      theme = "breeze";
       settings = {
         General = {
           InputMethod = "qtvirtualkeyboard";
