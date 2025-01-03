@@ -104,6 +104,7 @@
 
     # misc
     file
+    localsend
     which
     tree
     # gnused
@@ -114,7 +115,8 @@
     oh-my-zsh
     zulu # Java
     openssl
-    libreoffice-fresh
+    libreoffice
+    xournalpp
     wireshark
     home-manager
     vlc
@@ -254,6 +256,7 @@
     drive
     handbrake
     obs-studio
+    kdePackages.kdenlive
     whatsapp-for-linux
     # ollama
     # denaro
