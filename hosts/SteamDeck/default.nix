@@ -31,12 +31,12 @@
 
   hardware.bluetooth = {
     enable = true;
-    settings = {
-      General = {
-        ControllerMode = "bredr";
-        Enable = "Source,Sink,Media,Socket"; # Fixes connecting Bluetooth Earphones
-      };
-    };
+   settings = {
+     General = {
+       # ControllerMode = "bredr";
+       Enable = "Source,Sink,Media,Socket"; # Fixes connecting Bluetooth Earphones
+     };
+   };
   };
 
   programs.zsh.enable = true;
@@ -74,9 +74,10 @@
   # };
 
   # Set your time zone.
+  time.timeZone = null;
   # time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
-  time.timeZone = "America/New_York";
+  # time.timeZone = "America/New_York";
   # time.timeZone = "America/Mexico_City";
 
   # Select internationalisation properties.
@@ -215,16 +216,16 @@
     linuxKernel.packages.linux_zen.v4l2loopback
 
     # Language Models
-    ollama
+    # ollama
     # open-webui
   ];
 
-  services = {
-    ollama.enable = true;
+  # services = {
+    # ollama.enable = true;
     # open-webui.enable = true;
-  };
+  # };
 
-  # virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.enable = false;
 
   # for droidcam
   boot.extraModulePackages = with config.boot.kernelPackages;

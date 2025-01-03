@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, stable-2405, ... }:
+{ config, pkgs, stable-2305, stable-2411, ... }:
 
 {
 
@@ -169,6 +169,7 @@
     # glow # markdown previewer in terminal
 
     btop  # replacement of htop/nmon
+    kdePackages.filelight # disk usage statistics
     # iotop # io monitoring
     # iftop # network monitoring
 
@@ -207,7 +208,7 @@
     minetest
     endless-sky
     prismlauncher
-    heroic
+    # heroic
 
     # General Apps
     bitwarden
@@ -216,9 +217,9 @@
     opera
     emacs29
     firefox
-    # musescore
+    musescore
     nextcloud-client
-    signal-desktop
+    stable-2411.signal-desktop
     whatsapp-for-linux
     # jami # not worth it
     zoom-us
@@ -226,13 +227,13 @@
     spotify
     # scribus
     drive
-    stable-2405.handbrake
+    stable-2411.handbrake
     xournalpp
     pdftk
     obs-studio
     libsForQt5.kdenlive
-    gimp-with-plugins
-    gimpPlugins.bimp
+    # gimp-with-plugins
+    # gimpPlugins.bimp
     droidcam
     # waydroid # android emulation
 
