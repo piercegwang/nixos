@@ -124,7 +124,7 @@
     oh-my-zsh
     zulu # Java
     openssl
-    # libreoffice-fresh
+    libreoffice
     wireshark
     home-manager
     vlc
@@ -231,7 +231,7 @@
     xournalpp
     pdftk
     obs-studio
-    libsForQt5.kdenlive
+    kdePackages.kdenlive
     # gimp-with-plugins
     # gimpPlugins.bimp
     droidcam
