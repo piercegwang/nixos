@@ -75,6 +75,9 @@
     # feel free to add your own or remove some of them
     maliit-keyboard
     maliit-framework
+    libsForQt5.qt5.qtwayland
+    # squeekboard
+    # wvkbd
 
     # Fonts
     # wqy_microhei
@@ -89,7 +92,7 @@
     zip
     xz
     unzip
-    p7zip
+    # p7zip
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
@@ -109,7 +112,7 @@
     # socat # replacement of openbsd-netcat
     # nmap # A utility for network discovery and security auditing
     # ipcalc  # it is a calculator for the IPv4/v6 addresses
-    pulseaudioFull
+    # pulseaudioFull
 
     # misc
     file
@@ -130,7 +133,6 @@
     vlc
     mpv
     # keyd
-    lmms
     audacity
 
     # -- GNOME
@@ -138,21 +140,23 @@
 
     # -- KDE Plasma
     # libsForQt5.kscreen
+    # kdePackages.qt5compat
+    # kdePackages.plasma5support
 
     # Development
     # python310
     python311
-    python311Packages.pip
-    python311Packages.autopep8
-    python311Packages.black
-    python311Packages.isort
-    rustup
+    # python311Packages.pip
+    # python311Packages.autopep8
+    # python311Packages.black
+    # python311Packages.isort
+    # rustup
     # rust-analyzer
-    mold # faster linker
-    semgrep
-    godot_4
-    blender
-    libresprite
+    # mold # faster linker
+    # semgrep
+    # godot_4
+    # blender
+    # libresprite
     nodejs_22
 
     # R stuff
@@ -204,16 +208,16 @@
     figlet
 
     # Gaming
-    airshipper
-    minetest
-    endless-sky
+    # airshipper
+    # minetest
+    # endless-sky
     prismlauncher
     # heroic
 
     # General Apps
     bitwarden
     brave
-    qutebrowser
+    # qutebrowser
     opera
     emacs29
     firefox
@@ -221,12 +225,10 @@
     nextcloud-client
     stable-2411.signal-desktop
     whatsapp-for-linux
-    # jami # not worth it
     zoom-us
     slack
     spotify
     # scribus
-    drive
     stable-2411.handbrake
     xournalpp
     pdftk

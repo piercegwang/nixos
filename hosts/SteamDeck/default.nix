@@ -15,11 +15,11 @@
       ./hardware-configuration.nix
       (
         # Put the most recent revision here:
-        let revision = "98a61cf0708885abddebc6938ca7282928981d5e"; in
+        let revision = "7e530766a5fd9b7577296fedd655f3255f7495d8"; in
         builtins.fetchTarball {
           url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
           # Update the hash as needed:
-          sha256 = "sha256:0f1c3ilr9rm6jrs3nfhvf8ni0jccfy1810s6a94iywa9416w1k7c";
+          sha256 = "sha256:1ngprq4mn5pxqmqzwmgiax0lfm6wpypjw9ghmsrm4q8gmg2r2xbz";
         } + "/modules"
       )
       # ../../modules/opensd
@@ -56,22 +56,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # networking.wireless = {
-  #   enable = true;
-  #   environmentFile = "/home/piercewang/.config/secrets/wireless.env";
-  #   networks = {
-  #     "Columbia U Secure" = {
-  #       auth = ''
-  #         key_mgmt=WPA-EAP
-  #         eap=PEAP
-  #         phase2="auth=MSCHAPV2"
-  #         identity="@IDENT_COLUMBIA@"
-  #         password="@PSK_COLUMBIA@"
-  #         '';
-  #     };
-  #   };
-  # };
 
   # Set your time zone.
   time.timeZone = null;
@@ -168,7 +152,7 @@
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       # outputs.overlays.additions
-      outputs.overlays.modifications
+      # outputs.overlays.modifications # audio changes
       # outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
@@ -205,20 +189,26 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    # gnome.gnome-tweaks
-    zerotierone
-    packagekit
-    # steamdeck-firmware
-    qt6.qtvirtualkeyboard
-    linuxKernel.packages.linux_zen.v4l2loopback
+  environment = {
+    # variables = {
+    #   KWIN_IM_SHOW_ALWAYS = "1";
+    # };
+    systemPackages = with pkgs; [
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      wget
+      # gnome.gnome-tweaks
+      zerotierone
+      packagekit
+      # qt6.qtvirtualkeyboard
+      kdePackages.qtvirtualkeyboard
+      # libsForQt5.qt5.qtvirtualkeyboard
+      linuxKernel.packages.linux_zen.v4l2loopback
 
-    # Language Models
-    # ollama
-    # open-webui
-  ];
+      # Language Models
+      # ollama
+      # open-webui
+    ];
+  };
 
   # services = {
     # ollama.enable = true;
