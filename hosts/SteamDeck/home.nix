@@ -174,6 +174,7 @@
 
     btop  # replacement of htop/nmon
     kdePackages.filelight # disk usage statistics
+    kdePackages.powerdevil # power management based on activity
     # iotop # io monitoring
     # iftop # network monitoring
 
@@ -237,7 +238,9 @@
     # gimp-with-plugins
     # gimpPlugins.bimp
     droidcam
-    # waydroid # android emulation
+    #
+    #waydroid # android emulation
+    sonobus
 
     # Steam Deck
     # opensd

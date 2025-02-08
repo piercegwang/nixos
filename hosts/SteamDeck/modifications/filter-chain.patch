@@ -1,15 +1,8 @@
-Only in steamdeck-dsp-0.49_modified: filter-chain.diff
-diff --color -ur --no-dereference steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf
---- steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf	2024-05-15 12:36:11.000000000 -0700
-+++ steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf	2024-07-02 14:40:51.107315632 -0700
-@@ -7,20 +7,20 @@
-     {   name = libpipewire-module-filter-chain
-         args = {
-             node.name =  "filter-chain-source"
--            node.description =  "Filter Chain Source"
--            media.name =  "Filter Chain Source"
-+            node.description =  "Filter Chain Source (no VAD)"
-+            media.name =  "Filter Chain Source (no VAD)"
+diff --color -ur --no-dereference steamdeck-dsp-0.57/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf steamdeck-dsp-0.57-replaced/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.57/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf	2024-11-22 12:20:41.000000000 -0500
++++ steamdeck-dsp-0.57-replaced/pipewire-confs/hardware-profiles/valve-galileo/pipewire.conf.d/filter-chain.conf	2025-01-16 10:55:20.764566963 -0500
+@@ -11,16 +11,16 @@
+             media.name =  "Filter Chain Source"
              filter.graph = {
                  nodes = [
 -                    {
@@ -46,17 +39,11 @@ diff --color -ur --no-dereference steamdeck-dsp-0.49/pipewire-confs/hardware-pro
                  ]
              }
              capture.props = {
-diff --color -ur --no-dereference steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf
---- steamdeck-dsp-0.49/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf	2024-05-15 12:36:11.000000000 -0700
-+++ steamdeck-dsp-0.49_modified/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf	2024-07-02 14:10:13.536370578 -0700
-@@ -7,20 +7,20 @@
-     {   name = libpipewire-module-filter-chain
-         args = {
-             node.name =  "filter-chain-source"
--            node.description =  "Filter Chain Source"
--            media.name =  "Filter Chain Source"
-+            node.description =  "Filter Chain Source (no VAD)"
-+            media.name =  "Filter Chain Source (no VAD)"
+diff --color -ur --no-dereference steamdeck-dsp-0.57/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf steamdeck-dsp-0.57-replaced/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.57/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf	2024-11-22 12:20:41.000000000 -0500
++++ steamdeck-dsp-0.57-replaced/pipewire-confs/hardware-profiles/valve-jupiter/pipewire.conf.d/filter-chain.conf	2025-01-16 10:55:31.771178306 -0500
+@@ -11,16 +11,16 @@
+             media.name =  "Filter Chain Source"
              filter.graph = {
                  nodes = [
 -                    {
@@ -88,8 +75,8 @@ diff --color -ur --no-dereference steamdeck-dsp-0.49/pipewire-confs/hardware-pro
                  links = [
 -                    { output = "rnnoise:Output (L)" input = "valve_deck_microphone:in0" }
 -                    { output = "rnnoise:Output (R)" input = "valve_deck_microphone:in1" }
-+                    { output = "valve_deck_microphone:Output (L)" input = "valve_deck_microphone:in0" }
-+                    { output = "valve_deck_microphone:Output (R)" input = "valve_deck_microphone:in1" }
++                    # { output = "rnnoise:Output (L)" input = "valve_deck_microphone:in0" }
++                    # { output = "rnnoise:Output (R)" input = "valve_deck_microphone:in1" }
                  ]
              }
              capture.props = {

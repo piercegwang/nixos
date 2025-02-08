@@ -1,4 +1,4 @@
-{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, nixpkgs-2411-stable, home-manager, nixos-hardware, ... }:
+{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, nixpkgs-2411-stable, jovian-nixos, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
@@ -91,6 +91,8 @@ in
       };
 
       modules = [
+        jovian-nixos.nixosModules.default
+
         ./SteamDeck
 
         home-manager.nixosModules.home-manager

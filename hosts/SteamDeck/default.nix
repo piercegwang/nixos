@@ -13,15 +13,15 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (
-        # Put the most recent revision here:
-        let revision = "7e530766a5fd9b7577296fedd655f3255f7495d8"; in
-        builtins.fetchTarball {
-          url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
-          # Update the hash as needed:
-          sha256 = "sha256:1ngprq4mn5pxqmqzwmgiax0lfm6wpypjw9ghmsrm4q8gmg2r2xbz";
-        } + "/modules"
-      )
+      # (
+      #   # Put the most recent revision here:
+      #   let revision = "7e530766a5fd9b7577296fedd655f3255f7495d8"; in
+      #   builtins.fetchTarball {
+      #     url = "https://github.com/Jovian-Experiments/Jovian-NixOS/archive/${revision}.tar.gz";
+      #     # Update the hash as needed:
+      #     sha256 = "sha256:1ngprq4mn5pxqmqzwmgiax0lfm6wpypjw9ghmsrm4q8gmg2r2xbz";
+      #   } + "/modules"
+      # )
       # ../../modules/opensd
     ];
 
@@ -152,7 +152,7 @@
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       # outputs.overlays.additions
-      # outputs.overlays.modifications # audio changes
+      outputs.overlays.modifications # audio changes
       # outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
@@ -200,8 +200,8 @@
       zerotierone
       packagekit
       # qt6.qtvirtualkeyboard
-      kdePackages.qtvirtualkeyboard
-      # libsForQt5.qt5.qtvirtualkeyboard
+      # kdePackages.qtvirtualkeyboard
+      libsForQt5.qt5.qtvirtualkeyboard
       linuxKernel.packages.linux_zen.v4l2loopback
 
       # Language Models
