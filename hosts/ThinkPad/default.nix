@@ -100,6 +100,9 @@
       ];
     };
     openssh.enable = true;
+    cron.systemCronJobs = [
+      "0 4 * * * root shutdown -r +5"
+    ];
   };
 
   # GTK themes are not applied in Wayland applications / Window Decorations missing / Cursor looks different (from nixos guide)
