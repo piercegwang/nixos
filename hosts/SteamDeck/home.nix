@@ -210,7 +210,7 @@
 
     # Gaming
     # airshipper
-    # minetest
+    luanti # minetest, renamed
     # endless-sky
     prismlauncher
     # heroic
