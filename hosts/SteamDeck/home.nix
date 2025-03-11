@@ -134,6 +134,7 @@
     mpv
     # keyd
     audacity
+    tickrs
 
     # -- GNOME
     # gnome-randr
@@ -220,7 +221,7 @@
     brave
     # qutebrowser
     opera
-    emacs29
+    emacs30
     firefox
     musescore
     nextcloud-client
@@ -241,6 +242,7 @@
     #
     #waydroid # android emulation
     sonobus
+    koodo-reader
 
     # Steam Deck
     # opensd

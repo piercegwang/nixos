@@ -102,19 +102,20 @@
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.sddm = {
-      enable = true;
-      theme = "breeze";
-      settings = {
-        General = {
-          InputMethod = "qtvirtualkeyboard";
-        };
-      };
+      enable = false;
+      # wayland.enable = true;
+      # theme = "where-is-my-sddm";
+      # settings = {
+      #   General = {
+      #     InputMethod = "qtvirtualkeyboard";
+      #   };
+      # };
     };
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
       # Enable the GNOME Desktop Environment.
-      # displayManager.gdm.enable = true;
+      displayManager.gdm.enable = true;
       # desktopManager.gnome.enable = true;
       # desktopManager.xfce.enable = true;
       # Configure keymap in X11
@@ -200,9 +201,11 @@
       zerotierone
       packagekit
       # qt6.qtvirtualkeyboard
-      # kdePackages.qtvirtualkeyboard
-      libsForQt5.qt5.qtvirtualkeyboard
+      kdePackages.qtvirtualkeyboard
+      # libsForQt5.qt5.qtvirtualkeyboard
       linuxKernel.packages.linux_zen.v4l2loopback
+      # where-is-my-sddm-theme
+      gdm
 
       # Language Models
       # ollama
