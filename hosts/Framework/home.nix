@@ -241,7 +241,7 @@
     brave
     qutebrowser
     discord
-    emacs29
+    emacs30
     firefox
     musescore
     nextcloud-client
