@@ -129,11 +129,7 @@
     # gnome-randr
 
     # Development
-    python311
-    python311Packages.pip
-    python311Packages.autopep8
-    python311Packages.black
-    python311Packages.isort
+    python312
     rustup
     # rust-analyzer
     mold # faster linker
@@ -141,10 +137,11 @@
     godot_4
     blender
     libresprite
+    vscode
+    ngrok
 
     # R stuff
     quarto
-    rstudio
     (rWrapper.override {
       packages = with pkgs.rPackages; [
         # data.table
@@ -246,7 +243,7 @@
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader
-    # nodejs_20
+    nodejs_22
     signal-desktop
     sigtop
     slack
@@ -257,6 +254,7 @@
     handbrake
     obs-studio
     kdePackages.kdenlive
+    davinci-resolve
     whatsapp-for-linux
     # ollama
     # denaro

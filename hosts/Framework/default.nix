@@ -157,11 +157,11 @@
 
   # Enable sound with pipewire.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.pki.certificateFiles = [
     ../../modules/nextcloud/nc-selfsigned.pem
   ];
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -199,6 +199,8 @@
     zerotierone
     packagekit
     steam
+    docker
+    docker-compose
   ];
 
 
@@ -214,6 +216,9 @@
       ];
     };
   };
+
+
+  virtualisation.docker.enable = true;
 
   programs.steam = {
     enable = true;
