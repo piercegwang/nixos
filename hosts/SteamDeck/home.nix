@@ -220,7 +220,7 @@
     bitwarden
     brave
     # qutebrowser
-    opera
+    # opera
     emacs30
     firefox
     musescore
@@ -236,6 +236,7 @@
     pdftk
     obs-studio
     kdePackages.kdenlive
+    davinci-resolve
     # gimp-with-plugins
     # gimpPlugins.bimp
     droidcam

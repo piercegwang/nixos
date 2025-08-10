@@ -166,7 +166,12 @@
       #   });
       # })
     ];
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "libsoup-2.74.3"
+      ];
+    };
   };
 
   jovian = {
@@ -277,6 +282,7 @@
   networking.firewall.allowedUDPPorts = [ 53317 34665 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
