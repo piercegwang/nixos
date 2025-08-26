@@ -254,7 +254,7 @@
     handbrake
     obs-studio
     kdePackages.kdenlive
-    davinci-resolve
+    # davinci-resolve
     whatsapp-for-linux
     # ollama
     # denaro
