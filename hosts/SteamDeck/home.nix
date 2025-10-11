@@ -225,7 +225,7 @@
     firefox
     musescore
     nextcloud-client
-    stable-2411.signal-desktop
+    signal-desktop
     whatsapp-for-linux
     zoom-us
     slack

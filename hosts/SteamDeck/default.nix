@@ -89,6 +89,7 @@
         addons = with pkgs; [
           fcitx5-gtk
           # fcitx5-chinese-addons
+          # kdePackages.fcitx5-chinese-addons
           libsForQt5.fcitx5-chinese-addons
           fcitx5-rime
         ];
@@ -101,6 +102,7 @@
 
   services = {
     desktopManager.plasma6.enable = true;
+    displayManager.gdm.enable = true;
     displayManager.sddm = {
       enable = false;
       # wayland.enable = true;
@@ -115,7 +117,6 @@
       # Enable the X11 windowing system.
       enable = true;
       # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
       # desktopManager.gnome.enable = true;
       # desktopManager.xfce.enable = true;
       # Configure keymap in X11
