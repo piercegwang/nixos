@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, stable-2411, ... }:
+{ config, pkgs, stable-2305, ... }:
 
 {
 
@@ -35,8 +35,10 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Pierce Wang";
-    userEmail = "pierce.g.wang@gmail.com";
+    settings = {
+      user.name = "Pierce Wang";
+      user.email = "pierce.g.wang@gmail.com";
+    };
   };
 
   # xsession = {
@@ -137,7 +139,7 @@
     tickrs
 
     # -- GNOME
-    # gnome-randr
+    gnome-randr
 
     # -- KDE Plasma
     # libsForQt5.kscreen
@@ -193,7 +195,7 @@
 
    # Emacs dependencies
     cmake
-    gtk3 # (might not need this)
+    # gtk3 # (might not need this)
     ditaa
     gcc_multi
     gnumake
@@ -208,6 +210,7 @@
     rsync
     ghostscript
     figlet
+    noto-fonts
 
     # Gaming
     # airshipper
@@ -217,7 +220,7 @@
     # heroic
 
     # General Apps
-    bitwarden
+    bitwarden-desktop
     brave
     # qutebrowser
     # opera
@@ -226,12 +229,11 @@
     musescore
     nextcloud-client
     signal-desktop
-    whatsapp-for-linux
+    wasistlos
     zoom-us
     slack
     spotify
-    # scribus
-    stable-2411.handbrake
+    handbrake
     xournalpp
     pdftk
     obs-studio
@@ -242,19 +244,24 @@
     droidcam
     #
     #waydroid # android emulation
-    sonobus
-    koodo-reader
+    # sonobus # not useful unless someone else has it...
+    # koodo-reader
 
     # Steam Deck
     # opensd
+    sc-controller
 
     # Language Models
     # ollama
+
+    # GNOME Things
+    gnome-tweaks
+    adwaita-fonts
+    adwaita-icon-theme
   ];
 
   services.emacs.enable = false;
-  # services.opensd.enable = true;
-  # See: https://codeberg.org/OpenSD/opensd/src/branch/master/systemd/opensd.service
+
   # systemd.user.services.opensd = {
   #   Unit = {
   #     Description = "OpenSD Steam Deck userspace input driver daemon";
@@ -269,19 +276,9 @@
   #   };
   # };
 
-  # xsession.windowManager.bspwm.enable = true;
+  # See: https://codeberg.org/OpenSD/opensd/src/branch/master/systemd/opensd.service
 
-  # starship - an customizable prompt for any shell
-  # programs.starship = {
-  #   enable = true;
-  #   # custom settings
-  #   settings = {
-  #     add_newline = false;
-  #     aws.disabled = true;
-  #     gcloud.disabled = true;
-  #     line_break.disabled = true;
-  #   };
-  # };
+  # xsession.windowManager.bspwm.enable = true;
 
   # # alacritty - a cross-platform, GPU-accelerated terminal emulator
   # programs.alacritty = {
@@ -297,6 +294,50 @@
   #     selection.save_to_clipboard = true;
   #   };
   # };
+
+  # # GTK theming settings
+  # gtk = {
+  #   enable = true;
+  #   # Icon Theme
+  #   iconTheme = {
+  #     package = pkgs.adwaita-icon-theme;
+  #     name = "Adwaita";
+  #     # package = pkgs.kdePackages.breeze-icons;
+  #     # name = "Breeze-Dark";
+  #   };
+  # };
+  #
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "palenight";
+      package = pkgs.palenight-theme;
+    };
+
+    cursorTheme = {
+      name = "Numix-Cursor";
+      package = pkgs.numix-cursor-theme;
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
 
   programs.bash = {
     enable = false;

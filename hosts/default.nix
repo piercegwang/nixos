@@ -15,10 +15,6 @@ let
   # pkgs = nixpkgs.legacyPackages.${system} {
   #   config.allowUnfree = true;
   # };
-  stable-2411 = import nixpkgs-2411-stable {
-    inherit system;
-    config.allowUnfree = true;                              # Allow proprietary software
-  };
 
 in
   {
@@ -100,7 +96,7 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit user stable-2305 stable-2411;
+            inherit user stable-2305;
             host = {
               hostName = "piercewang";
             };

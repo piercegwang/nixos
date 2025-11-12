@@ -89,8 +89,8 @@
         addons = with pkgs; [
           fcitx5-gtk
           # fcitx5-chinese-addons
-          # kdePackages.fcitx5-chinese-addons
-          libsForQt5.fcitx5-chinese-addons
+          kdePackages.fcitx5-chinese-addons
+          # libsForQt5.fcitx5-chinese-addons
           fcitx5-rime
         ];
       };
@@ -101,7 +101,8 @@
   services.fwupd.enable = true;
 
   services = {
-    desktopManager.plasma6.enable = true;
+    # desktopManager.plasma6.enable = true;
+    desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
     displayManager.sddm = {
       enable = false;
@@ -115,7 +116,7 @@
     };
     xserver = {
       # Enable the X11 windowing system.
-      enable = true;
+      enable = false;
       # Enable the GNOME Desktop Environment.
       # desktopManager.gnome.enable = true;
       # desktopManager.xfce.enable = true;
@@ -127,10 +128,12 @@
   };
 
   # GTK themes are not applied in Wayland applications / Window Decorations missing / Cursor looks different (from nixos guide)
-  programs.dconf.enable = true;
+  programs.dconf = {
+    enable = true;
+  };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   security.pki.certificateFiles = [
     ../../modules/nextcloud/nc-selfsigned.pem
@@ -154,7 +157,7 @@
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       # outputs.overlays.additions
-      outputs.overlays.modifications # audio changes
+      # outputs.overlays.modifications # audio changes
       # outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
@@ -183,7 +186,7 @@
       enable = true;
       autoStart = false;
       user = "piercewang";
-      desktopSession = "plasma";
+      desktopSession = "gnome"; # used to be plasma6
     };
     devices.steamdeck = {
       enable = true;
@@ -279,11 +282,12 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 53317 34665 ];
-  networking.firewall.allowedUDPPorts = [ 53317 34665 ];
+  # networking.firewall.allowedTCPPorts = [ 53317 34665 ];
+  # networking.firewall.allowedUDPPorts = [ 53317 34665 ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
+  home-manager.backupFileExtension = "backup";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
