@@ -101,8 +101,8 @@
   services.fwupd.enable = true;
 
   services = {
-    # desktopManager.plasma6.enable = true;
-    desktopManager.gnome.enable = true;
+    desktopManager.plasma6.enable = true;
+    # desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
     displayManager.sddm = {
       enable = false;
@@ -186,7 +186,7 @@
       enable = true;
       autoStart = false;
       user = "piercewang";
-      desktopSession = "gnome"; # used to be plasma6
+      desktopSession = "plasma6"; # plasma6 or gnome
     };
     devices.steamdeck = {
       enable = true;
@@ -209,8 +209,8 @@
       # gnome.gnome-tweaks
       zerotierone
       packagekit
-      # qt6.qtvirtualkeyboard
-      kdePackages.qtvirtualkeyboard
+      qt6.qtvirtualkeyboard
+      # kdePackages.qtvirtualkeyboard
       # libsForQt5.qt5.qtvirtualkeyboard
       linuxKernel.packages.linux_zen.v4l2loopback
       # where-is-my-sddm-theme
