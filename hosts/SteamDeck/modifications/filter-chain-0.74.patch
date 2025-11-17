@@ -1,0 +1,150 @@
+diff --color -ur --no-dereference steamdeck-dsp-0.74/pipewire-confs/hardware-profiles/default/filter-chain.conf.d/filter-chain.conf steamdeck-dsp-0.74-modified/pipewire-confs/hardware-profiles/default/filter-chain.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.74/pipewire-confs/hardware-profiles/default/filter-chain.conf.d/filter-chain.conf	2025-11-04 15:14:51.000000000 -0500
++++ steamdeck-dsp-0.74-modified/pipewire-confs/hardware-profiles/default/filter-chain.conf.d/filter-chain.conf	2025-11-14 11:05:52.553383925 -0500
+@@ -13,26 +13,34 @@
+             media.name =  "Filter Chain Source"
+             filter.graph = {
+                 nodes = [
++                    # {
++                    #     type = ladspa
++                    #     name = noisetorch_left
++                    #     plugin = /usr/lib/ladspa/rnnoise_ladspa.so
++                    #     label = nt-filter
++                    # }
++                    # {
++                    #     type = ladspa
++                    #     name = noisetorch_right
++                    #     plugin = /usr/lib/ladspa/rnnoise_ladspa.so
++                    #     label = nt-filter
++                    # }
+                     {
+-                        type = ladspa
+-                        name = noisetorch_left
+-                        plugin = /usr/lib/ladspa/rnnoise_ladspa.so
+-                        label = nt-filter
++                        type = pass
++                        name = pass_through_left
+                     }
+                     {
+-                        type = ladspa
+-                        name = noisetorch_right
+-                        plugin = /usr/lib/ladspa/rnnoise_ladspa.so
+-                        label = nt-filter
++                        type = pass
++                        name = pass_through_right
+                     }
+                 ]
+                 inputs = [
+-                    "noisetorch_left:Input"
+-                    "noisetorch_right:Input"
++                    "pass_through_left:Input"
++                    "pass_through_right:Input"
+                 ]
+                 outputs = [
+-                    "noisetorch_left:Output"
+-                    "noisetorch_right:Output"
++                    "pass_through_left:Output"
++                    "pass_through_right:Output"
+                 ]
+             }
+             capture.props = {
+diff --color -ur --no-dereference steamdeck-dsp-0.74/pipewire-confs/hardware-profiles/valve-galileo/filter-chain.conf.d/filter-chain.conf steamdeck-dsp-0.74-modified/pipewire-confs/hardware-profiles/valve-galileo/filter-chain.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.74/pipewire-confs/hardware-profiles/valve-galileo/filter-chain.conf.d/filter-chain.conf	2025-11-04 15:14:51.000000000 -0500
++++ steamdeck-dsp-0.74-modified/pipewire-confs/hardware-profiles/valve-galileo/filter-chain.conf.d/filter-chain.conf	2025-11-14 11:06:23.716588812 -0500
+@@ -13,26 +13,34 @@
+             media.name =  "Filter Chain Source"
+             filter.graph = {
+                 nodes = [
++                    # {
++                    #     type = ladspa
++                    #     name = noisetorch_left
++                    #     plugin = /usr/lib/ladspa/rnnoise_ladspa.so
++                    #     label = nt-filter
++                    # }
++                    # {
++                    #     type = ladspa
++                    #     name = noisetorch_right
++                    #     plugin = /usr/lib/ladspa/rnnoise_ladspa.so
++                    #     label = nt-filter
++                    # }
+                     {
+-                        type = ladspa
+-                        name = noisetorch_left
+-                        plugin = /usr/lib/ladspa/rnnoise_ladspa.so
+-                        label = nt-filter
++                        type = pass
++                        name = pass_through_left
+                     }
+                     {
+-                        type = ladspa
+-                        name = noisetorch_right
+-                        plugin = /usr/lib/ladspa/rnnoise_ladspa.so
+-                        label = nt-filter
++                        type = pass
++                        name = pass_through_right
+                     }
+                 ]
+                 inputs = [
+-                    "noisetorch_left:Input"
+-                    "noisetorch_right:Input"
++                    "pass_through_left:Input"
++                    "pass_through_right:Input"
+                 ]
+                 outputs = [
+-                    "noisetorch_left:Output"
+-                    "noisetorch_right:Output"
++                    "pass_through_left:Output"
++                    "pass_through_right:Output"
+                 ]
+             }
+             capture.props = {
+diff --color -ur --no-dereference steamdeck-dsp-0.74/pipewire-confs/hardware-profiles/valve-jupiter/filter-chain.conf.d/filter-chain.conf steamdeck-dsp-0.74-modified/pipewire-confs/hardware-profiles/valve-jupiter/filter-chain.conf.d/filter-chain.conf
+--- steamdeck-dsp-0.74/pipewire-confs/hardware-profiles/valve-jupiter/filter-chain.conf.d/filter-chain.conf	2025-11-04 15:14:51.000000000 -0500
++++ steamdeck-dsp-0.74-modified/pipewire-confs/hardware-profiles/valve-jupiter/filter-chain.conf.d/filter-chain.conf	2025-11-14 11:06:45.316734643 -0500
+@@ -13,26 +13,34 @@
+             media.name =  "Filter Chain Source"
+             filter.graph = {
+                 nodes = [
++                    # {
++                    #     type = ladspa
++                    #     name = noisetorch_left
++                    #     plugin = /usr/lib/ladspa/rnnoise_ladspa.so
++                    #     label = nt-filter
++                    # }
++                    # {
++                    #     type = ladspa
++                    #     name = noisetorch_right
++                    #     plugin = /usr/lib/ladspa/rnnoise_ladspa.so
++                    #     label = nt-filter
++                    # }
+                     {
+-                        type = ladspa
+-                        name = noisetorch_left
+-                        plugin = /usr/lib/ladspa/rnnoise_ladspa.so
+-                        label = nt-filter
++                        type = pass
++                        name = pass_through_left
+                     }
+                     {
+-                        type = ladspa
+-                        name = noisetorch_right
+-                        plugin = /usr/lib/ladspa/rnnoise_ladspa.so
+-                        label = nt-filter
++                        type = pass
++                        name = pass_through_right
+                     }
+                 ]
+                 inputs = [
+-                    "noisetorch_left:Input"
+-                    "noisetorch_right:Input"
++                    "pass_through_left:Input"
++                    "pass_through_right:Input"
+                 ]
+                 outputs = [
+-                    "noisetorch_left:Output"
+-                    "noisetorch_right:Output"
++                    "pass_through_left:Output"
++                    "pass_through_right:Output"
+                 ]
+             }
+             capture.props = {

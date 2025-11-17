@@ -12,7 +12,7 @@
     # });
     steamdeck-dsp = if prev ? steamdeck-dsp then
       prev.steamdeck-dsp.overrideAttrs (oldAttrs: rec {
-        patches = oldAttrs.patches or [] ++ [ ../hosts/SteamDeck/modifications/filter-chain.patch ];
+        patches = oldAttrs.patches or [] ++ [ ../hosts/SteamDeck/modifications/filter-chain-0.74.patch ];
       })
     else
       null;
