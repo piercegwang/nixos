@@ -223,7 +223,7 @@
 
     # Gaming
     airshipper
-    minetest
+    luanti
     endless-sky
     # (lutris.override {
     #    extraPkgs = pkgs: [
@@ -234,7 +234,7 @@
 
     # General Apps
     betterdiscord-installer
-    bitwarden
+    bitwarden-desktop
     brave
     qutebrowser
     discord
@@ -255,7 +255,7 @@
     obs-studio
     kdePackages.kdenlive
     # davinci-resolve
-    whatsapp-for-linux
+    wasistlos
     # ollama
     # denaro
 

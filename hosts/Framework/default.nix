@@ -199,6 +199,7 @@
     wget
     # gnome.gnome-tweaks
     zerotierone
+    tailscale
     packagekit
     steam
     docker
@@ -216,6 +217,11 @@
       joinNetworks = [
         "a0cbf4b62a5cddb8"
       ];
+    };
+    tailscale = {
+      enable = true;
+      # now run "sudo tailscale up --auth-key=KEY" # Generate key here: https://login.tailscale.com/admin/machines/new-linux
+      # For server, run "sudo tailscale cert ${Machine Name}.${TS Name}" and then copy files somewhere appropriate
     };
   };
 
@@ -239,11 +245,11 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 53317 ];
-  networking.firewall.allowedUDPPorts = [ 53317 ];
+  networking.firewall.allowedTCPPorts = [ 53317 22 ];
+  networking.firewall.allowedUDPPorts = [ 53317 22 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
