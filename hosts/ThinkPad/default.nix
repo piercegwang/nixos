@@ -87,17 +87,21 @@
 
   services = {
     logind = {
-      lidSwitch = "ignore";
-      lidSwitchDocked = "ignore";
-      extraConfig = ''
-        HandleSuspendKey=ignore
-      '';
+      settings.Login = {
+	HandleLidSwitch = "ignore";
+	HandleLidSwitchDocked = "ignore";
+        HandleSuspendKey="ignore";
+      };
     };
     zerotierone = {
       enable = true;
       joinNetworks = [
         "a0cbf4b62a5cddb8"
       ];
+    };
+    tailscale = {
+      enable = true;
+      # sudo tailscale up --auth-key=KEY 
     };
     openssh.enable = true;
     cron.systemCronJobs = [
@@ -116,7 +120,7 @@
 
   # Enable sound with pipewire.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -156,6 +160,7 @@
     wget
     # gnome.gnome-tweaks
     zerotierone
+    tailscale
     ripgrep
     git
     postgresql
