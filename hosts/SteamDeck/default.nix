@@ -207,7 +207,7 @@
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       # gnome.gnome-tweaks
-      zerotierone
+      # zerotierone
       tailscale
       packagekit
       qt6.qtvirtualkeyboard
@@ -249,12 +249,12 @@
   # ];
 
   services = {
-    zerotierone = {
-      enable = true;
-      joinNetworks = [
-        "a0cbf4b62a5cddb8"
-      ];
-    };
+    # zerotierone = {
+    #   enable = false;
+    #   joinNetworks = [
+    #     "a0cbf4b62a5cddb8"
+    #   ];
+    # };
     tailscale = {
       enable = true;
       # now run "sudo tailscale up --auth-key=KEY" # Generate key here: https://login.tailscale.com/admin/machines/new-linux

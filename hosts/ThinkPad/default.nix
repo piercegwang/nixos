@@ -93,12 +93,12 @@
         HandleSuspendKey="ignore";
       };
     };
-    zerotierone = {
-      enable = true;
-      joinNetworks = [
-        "a0cbf4b62a5cddb8"
-      ];
-    };
+    # zerotierone = {
+    #   enable = false;
+    #   joinNetworks = [
+    #     "a0cbf4b62a5cddb8"
+    #   ];
+    # };
     tailscale = {
       enable = true;
       # sudo tailscale up --auth-key=KEY 
@@ -159,7 +159,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     # gnome.gnome-tweaks
-    zerotierone
+    # zerotierone
     tailscale
     ripgrep
     git
