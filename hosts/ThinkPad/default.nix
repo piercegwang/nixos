@@ -106,6 +106,7 @@
     openssh.enable = true;
     cron.systemCronJobs = [
       "0 4 * * * root shutdown -r +5"
+      "0 * * * * root nextcloud-occ preview:pre-generate"
     ];
   };
 
