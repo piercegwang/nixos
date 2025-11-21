@@ -4,13 +4,14 @@
   # environment.etc."nextcloud-admin-pass".text = "initialpassword"; # use to make initial account
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud31;
-    hostName = "10.147.18.1";
+    package = pkgs.nextcloud32;
+    hostName = "thinkpad";
     database.createLocally = true;
     settings = {
-      trusted_domains = [ "10.147.18.1" "thinkpad" "thinkpad.quoll-ling.ts.net" ];
+      trusted_domains = [ "thinkpad" "thinkpad.quoll-ling.ts.net" ];
       log_type = "file";
       loglevel = 1;
+      trashbin_retention_obligation = "auto";
     };
     config = {
       dbtype = "pgsql";
