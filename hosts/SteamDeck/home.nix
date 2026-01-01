@@ -222,7 +222,7 @@
     # General Apps
     bitwarden-desktop
     brave
-    # qutebrowser
+    kdePackages.falkon
     # opera
     emacs30
     firefox

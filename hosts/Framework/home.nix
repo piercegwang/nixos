@@ -236,6 +236,7 @@
     betterdiscord-installer
     bitwarden-desktop
     brave
+    kdePackages.falkon
     qutebrowser
     discord
     emacs30
@@ -254,7 +255,7 @@
     handbrake
     obs-studio
     kdePackages.kdenlive
-    # davinci-resolve
+    davinci-resolve
     wasistlos
     # ollama
     # denaro
