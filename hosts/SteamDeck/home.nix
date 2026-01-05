@@ -148,8 +148,7 @@
     # kdePackages.plasma5support
 
     # Development
-    # python310
-    python311
+    python312
     # python311Packages.pip
     # python311Packages.autopep8
     # python311Packages.black
