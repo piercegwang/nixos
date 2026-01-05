@@ -101,6 +101,7 @@
     # nmap # A utility for network discovery and security auditing
     # ipcalc  # it is a calculator for the IPv4/v6 addresses
     pulseaudioFull
+    protonvpn-gui
 
     # misc
     file
@@ -237,6 +238,7 @@
     bitwarden-desktop
     brave
     kdePackages.falkon
+    kdePackages.kdeconnect-kde
     qutebrowser
     discord
     emacs30
