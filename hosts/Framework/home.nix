@@ -85,7 +85,8 @@
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
-    # jq # A lightweight and flexible command-line JSON processor
+    jq # A lightweight and flexible command-line JSON processor
+    exiftool # exif tool
     # yq-go # yaml processer https://github.com/mikefarah/yq
     # exa # A modern replacement for ‘ls’
     # fzf # A command-line fuzzy finder
@@ -131,6 +132,7 @@
 
     # Development
     python312
+    python312Packages.tkinter
     rustup
     # rust-analyzer
     mold # faster linker
