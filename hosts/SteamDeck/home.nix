@@ -193,9 +193,8 @@
     # pciutils # lspci
     usbutils # lsusb
 
-   # Emacs dependencies
+    # Emacs dependencies
     cmake
-    # gtk3 # (might not need this)
     ditaa
     gcc_multi
     gnumake
@@ -211,6 +210,7 @@
     ghostscript
     figlet
     noto-fonts
+    ledger
 
     # Gaming
     # airshipper

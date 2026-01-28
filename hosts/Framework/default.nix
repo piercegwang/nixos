@@ -223,6 +223,7 @@
       # now run "sudo tailscale up --auth-key=KEY" # Generate key here: https://login.tailscale.com/admin/machines/new-linux
       # For server, run "sudo tailscale cert ${Machine Name}.${TS Name}" and then copy files somewhere appropriate
     };
+    resolved.enable = true;
   };
 
 

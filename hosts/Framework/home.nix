@@ -223,6 +223,8 @@
     rsync
     ghostscript
     figlet
+    noto-fonts
+    ledger
 
     # Gaming
     airshipper
