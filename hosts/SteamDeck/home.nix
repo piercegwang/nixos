@@ -161,6 +161,7 @@
     # blender
     # libresprite
     nodejs_22
+    vscode
 
     # R stuff
     pandoc

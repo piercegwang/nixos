@@ -180,13 +180,14 @@
 
   jovian = {
     decky-loader = {
+      enable = true;
       user = "piercewang";
     };
     steam = {
       enable = true;
-      autoStart = false;
+      # autoStart = false; # No longer necessary since desktopSession is set
       user = "piercewang";
-      desktopSession = "plasma6"; # plasma6 or gnome
+      desktopSession = "plasma"; # plasma6 or gnome
     };
     devices.steamdeck = {
       enable = true;
@@ -260,6 +261,17 @@
       # now run "sudo tailscale up --auth-key=KEY" # Generate key here: https://login.tailscale.com/admin/machines/new-linux
       # For server, run "sudo tailscale cert ${Machine Name}.${TS Name}" and then copy files somewhere appropriate
     };
+    resolved.enable = true;
+  };
+
+  systemd.services.steam-cef-debug = lib.mkIf config.jovian.decky-loader.enable {
+    description = "Create Steam CEF debugging file";
+    serviceConfig = {
+      type = "oneshot";
+      User = config.jovian.steam.user;
+      ExecStart = "/bin/sh -c 'mkdir -p ~/.steam/steam && [ ! -f ~/.steam/steam/.cef-enable-remote-debugging  ] && touch ~/.steam/steam/.cef-enable-remote-debugging || true'";
+    };
+    wantedBy = [ "multi-user.target" ];
   };
 
   # programs.steam = {
