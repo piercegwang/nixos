@@ -212,6 +212,7 @@
     figlet
     noto-fonts
     ledger
+    hledger
 
     # Gaming
     # airshipper
