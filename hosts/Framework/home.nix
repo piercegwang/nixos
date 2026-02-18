@@ -231,6 +231,7 @@
     airshipper
     luanti
     endless-sky
+    cataclysm-dda-git
     # (lutris.override {
     #    extraPkgs = pkgs: [
     #      wine
@@ -247,7 +248,7 @@
     qutebrowser
     discord
     emacs30
-    firefox
+    librewolf
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader

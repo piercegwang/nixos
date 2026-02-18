@@ -227,7 +227,7 @@
     kdePackages.falkon
     # opera
     emacs30
-    firefox
+    librewolf
     musescore
     nextcloud-client
     signal-desktop
