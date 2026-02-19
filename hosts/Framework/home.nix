@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, ... }:
+{ config, pkgs, stable-2305, zen-browser, ... }:
 
 {
   home.username = "piercewang";
@@ -204,7 +204,7 @@
     # pciutils # lspci
     # usbutils # lsusb
     # wineWowPackages.stable
-    wineWowPackages.staging
+    wineWow64Packages.staging
     # winetricks
 
     # Emacs dependencies
@@ -248,7 +248,7 @@
     qutebrowser
     discord
     emacs30
-    librewolf
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader
