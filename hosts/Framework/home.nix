@@ -28,8 +28,10 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Pierce Wang";
-    userEmail = "pierce.g.wang@gmail.com";
+    settings.user = {
+      name = "Pierce Wang";
+      email = "pierce.g.wang@gmail.com";
+    };
   };
 
   # xsession = {
@@ -91,6 +93,7 @@
     # exa # A modern replacement for ‘ls’
     # fzf # A command-line fuzzy finder
     dbus
+    parted
 
     # networking tools
     # mtr # A network diagnostic tool
@@ -119,6 +122,7 @@
     openssl
     libreoffice
     xournalpp
+    pdftk
     wireshark
     home-manager
     vlc
@@ -137,7 +141,7 @@
     # rust-analyzer
     mold # faster linker
     semgrep
-    godot_4
+    # godot_4
     blender
     libresprite
     vscode
@@ -244,11 +248,12 @@
     bitwarden-desktop
     brave
     kdePackages.falkon
+    kdePackages.filelight # disk usage statistics
     kdePackages.kdeconnect-kde
     qutebrowser
     discord
     emacs30
-    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default # ??
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader
