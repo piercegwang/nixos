@@ -97,7 +97,7 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit user stable-2305;
+            inherit user stable-2305 zen-browser;
             host = {
               hostName = "piercewang";
             };

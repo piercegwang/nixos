@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, ... }:
+{ config, pkgs, stable-2305, zen-browser, ... }:
 
 {
 
@@ -224,6 +224,7 @@
     # General Apps
     bitwarden-desktop
     brave
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.falkon
     # opera
     emacs30
