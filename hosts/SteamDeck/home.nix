@@ -226,7 +226,7 @@
     brave
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.falkon
-    # opera
+    chromium
     emacs30
     librewolf
     musescore
@@ -249,6 +249,7 @@
     #waydroid # android emulation
     # sonobus # not useful unless someone else has it...
     # koodo-reader
+    qFlipper
 
     # Steam Deck
     # opensd
