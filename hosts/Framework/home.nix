@@ -270,8 +270,10 @@
     kdePackages.kdenlive
     davinci-resolve
     wasistlos
+    thunderbird
     # ollama
     # denaro
+    qFlipper
 
     # Window manager
     # bspwm

@@ -27,6 +27,8 @@
     # };
   };
 
+  hardware.flipperzero.enable = true;
+
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -182,7 +184,7 @@
   users.users.piercewang = {
     isNormalUser = true;
     description = "Pierce Wang";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     # packages = with pkgs; [
     # ];
   };
