@@ -76,7 +76,7 @@
     # noto-fonts-cjk-sans
     # dejavu_fonts
 
-    neofetch
+    fastfetch
     # nnn # terminal file manager
 
     # archives
@@ -105,7 +105,7 @@
     # nmap # A utility for network discovery and security auditing
     # ipcalc  # it is a calculator for the IPv4/v6 addresses
     pulseaudioFull
-    protonvpn-gui
+    proton-vpn
 
     # misc
     file
@@ -222,7 +222,7 @@
     texlive.combined.scheme-full
     wl-clipboard
     xdotool
-    xorg.xwininfo
+    xwininfo
     findutils
     rsync
     ghostscript
@@ -269,7 +269,7 @@
     obs-studio
     kdePackages.kdenlive
     davinci-resolve
-    wasistlos
+    karere
     thunderbird
     # ollama
     # denaro
