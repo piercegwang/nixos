@@ -112,11 +112,11 @@
     tmux
 
     # Development
-    python311
-    python311Packages.pip
-    python311Packages.autopep8
-    python311Packages.black
-    python311Packages.isort
+    python313
+    python313Packages.pip
+    python313Packages.autopep8
+    python313Packages.black
+    python313Packages.isort
     # rustup
     # rust-analyzer
     # mold # faster linker
