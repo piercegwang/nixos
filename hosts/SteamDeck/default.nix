@@ -150,7 +150,7 @@
     isNormalUser = true;
     description = "Pierce Wang";
     extraGroups = [ "networkmanager" "wheel" "dialout" ];
-    initialPassword = "initial_password";
+    initialPassword = "password";
     # packages = with pkgs; [
     # ];
   };

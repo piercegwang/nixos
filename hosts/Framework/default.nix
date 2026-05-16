@@ -105,31 +105,35 @@
   #       "WenQuanYi Micro Hei"
   #     ];
   # };
+  #
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
 
-  # i18n.inputMethod.enabled = "fcitx5";
-
-
-  # i18n.inputMethod.enabled = "fcitx5";
-  # i18n.inputMethod.fcitx5.addons = with pkgs; [
-  #   fcitx5-chinese-addons
-  #   fcitx5-rime
-  # ];
-  # i18n.inputMethod = {
-  #   enabled = "fcitx5";
-  #   fcitx5.addons = with pkgs; [
-  #     fcitx5-rime
-  #     fcitx5-configtool
-  #     fcitx5-chinese-addons
-  #     fcitx5-gtk
-  #   ];
-
-    # 我现在用 ibus
-    # enabled = "ibus";
-    # ibus.engines = with pkgs.ibus-engines; [
-    #   libpinyin
-    #   rime
-    # ];
-  # };
+  i18n = {
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-gtk
+          # fcitx5-chinese-addons
+          kdePackages.fcitx5-chinese-addons
+          # libsForQt5.fcitx5-chinese-addons
+          fcitx5-rime
+        ];
+      };
+    };
+  };
 
   # Enable fwupd
   services.fwupd.enable = true;
@@ -139,7 +143,7 @@
     desktopManager.plasma6.enable = true;
     xserver = {
       # Enable the X11 windowing system.
-      enable = true;
+      enable = false;
       # Enable the GNOME Desktop Environment.
       # displayManager.gdm.enable = true;
       # desktopManager.gnome.enable = true;
@@ -188,14 +192,16 @@
     isNormalUser = true;
     description = "Pierce Wang";
     extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    initialPassword = "password";
     # packages = with pkgs; [
     # ];
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.permittedInsecurePackages = [ "libsoup-2.74.3" ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "libsoup-2.74.3" ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
