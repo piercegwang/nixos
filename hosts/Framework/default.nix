@@ -41,15 +41,18 @@
   boot.initrd.luks.devices."luks-5f5347bc-c685-4b20-aaca-c5e24a26ddd4".device = "/dev/disk/by-uuid/5f5347bc-c685-4b20-aaca-c5e24a26ddd4";
   boot.initrd.luks.devices."luks-5f5347bc-c685-4b20-aaca-c5e24a26ddd4".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "Framework"; # Define your hostname.
+  networking = {
+    hostName = "Framework"; # Define your hostname.
+    # Enable networking
+
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    
+    networkmanager.enable = true;
+  };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # networking.wireless = {
   #   enable = true;
@@ -228,6 +231,24 @@
     resolved.enable = true;
   };
 
+  systemd.services.tailscale-restart = {
+    description = "Restart Tailscale after sleep";
+    
+    # This ensures the service is pulled in when the system wakes up
+    wantedBy = [ "multi-user.target" "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
+    
+    # This tells systemd to run the service AFTER the system has reached the wake targets
+    after = [ "multi-user.target" "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
+    
+    serviceConfig = {
+      Type = "oneshot";
+      # Since we aren't specifying a 'User', it defaults to running as root
+      ExecStart = "/run/current-system/sw/bin/bash -c '/home/piercewang/.config/nixos/common/scripts/restart_tailscale.sh'";
+      
+      # Optional: Ensures the script has a basic environment if needed
+      RemainAfterExit = "yes";
+    };
+  };
 
   virtualisation.docker.enable = true;
 

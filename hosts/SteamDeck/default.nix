@@ -267,6 +267,25 @@
     resolved.enable = true;
   };
 
+  systemd.services.tailscale-restart = {
+    description = "Restart Tailscale after sleep";
+    
+    # This ensures the service is pulled in when the system wakes up
+    wantedBy = [ "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
+    
+    # This tells systemd to run the service AFTER the system has reached the wake targets
+    after = [ "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
+    
+    serviceConfig = {
+      Type = "oneshot";
+      # Since we aren't specifying a 'User', it defaults to running as root
+      ExecStart = "/run/current-system/sw/bin/bash -c '/home/piercewang/.config/nixos/common/scripts/restart_tailscale.sh'";
+      
+      # Optional: Ensures the script has a basic environment if needed
+      RemainAfterExit = "no";
+    };
+  };
+
   systemd.services.steam-cef-debug = lib.mkIf config.jovian.decky-loader.enable {
     description = "Create Steam CEF debugging file";
     serviceConfig = {
