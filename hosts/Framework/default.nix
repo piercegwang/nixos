@@ -252,7 +252,7 @@
       ExecStart = "/run/current-system/sw/bin/bash -c '/home/piercewang/.config/nixos/common/scripts/restart_tailscale.sh'";
       
       # Optional: Ensures the script has a basic environment if needed
-      RemainAfterExit = "yes";
+      RemainAfterExit = "no";
     };
   };
 
