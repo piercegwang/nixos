@@ -271,10 +271,10 @@
     description = "Restart Tailscale after sleep";
     
     # This ensures the service is pulled in when the system wakes up
-    wantedBy = [ "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
+    wantedBy = [ "multi-user.target" "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
     
     # This tells systemd to run the service AFTER the system has reached the wake targets
-    after = [ "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
+    after = [ "multi-user.target" "suspend.target" "hybrid-sleep.target" "hibernate.target" ];
     
     serviceConfig = {
       Type = "oneshot";
