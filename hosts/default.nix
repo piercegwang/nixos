@@ -22,7 +22,7 @@ in
     Framework = lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit inputs system user;
+        inherit outputs inputs system user;
         host = {
           hostName = "Framework";
         };
