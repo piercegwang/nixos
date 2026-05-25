@@ -222,6 +222,7 @@
     # heroic
 
     # General Apps
+    anki
     bitwarden-desktop
     brave
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

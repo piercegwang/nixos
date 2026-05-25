@@ -244,6 +244,7 @@
 
 
     # General Apps
+    anki
     betterdiscord-installer
     bitwarden-desktop
     brave
