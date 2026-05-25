@@ -17,22 +17,22 @@
     else
       null;
 
-    tailscale = prev.tailscale.overrideAttrs (
-      finalAttrs: old: {
-        version = "1.98.2";
-        src = prev.fetchFromGitHub {
-          owner = "tailscale";
-          repo = "tailscale";
-          tag = "v${finalAttrs.version}";
-          hash = "sha256-y3JdVYnvfqrAlubnjrM2FD+PRXlNEzOM3yggSczb+rA=";
-        };
-        vendorHash = "sha256-mbxLXR2TBgiwyVGfLmMR5xWk+0f66mPDas95Wla70Lk=";
+    # tailscale = prev.tailscale.overrideAttrs (
+    #   finalAttrs: old: {
+    #     version = "1.98.2";
+    #     src = prev.fetchFromGitHub {
+    #       owner = "tailscale";
+    #       repo = "tailscale";
+    #       tag = "v${finalAttrs.version}";
+    #       hash = "sha256-y3JdVYnvfqrAlubnjrM2FD+PRXlNEzOM3yggSczb+rA=";
+    #     };
+    #     vendorHash = "sha256-mbxLXR2TBgiwyVGfLmMR5xWk+0f66mPDas95Wla70Lk=";
 
-        postPatch = (old.postPatch or "") + ''
-          substituteInPlace go.mod --replace-fail "go 1.26.3" "go 1.26.2"
-        '';
-      }
-    );
+    #     postPatch = (old.postPatch or "") + ''
+    #       substituteInPlace go.mod --replace-fail "go 1.26.3" "go 1.26.2"
+    #     '';
+    #   }
+    # );
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
