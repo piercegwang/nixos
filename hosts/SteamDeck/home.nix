@@ -242,7 +242,6 @@
     pdftk
     obs-studio
     kdePackages.kdenlive
-    davinci-resolve
     # gimp-with-plugins
     # gimpPlugins.bimp
     droidcam

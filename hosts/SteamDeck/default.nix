@@ -106,20 +106,29 @@
   services = {
     desktopManager.plasma6.enable = true;
     # desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+    # displayManager.gdm.enable = true;
     displayManager.sddm = {
       enable = false;
-      # wayland.enable = true;
-      # theme = "where-is-my-sddm";
-      # settings = {
-      #   General = {
-      #     InputMethod = "qtvirtualkeyboard";
-      #   };
-      # };
+    #   enableHidpi = true;
+    #   wayland.enable = true;
+    #   theme = "breeze";
+    #   settings = {
+    #     General = {
+    #       InputMethod = "qtvirtualkeyboard";
+    #     };
+    #   };
     };
     xserver = {
+      displayManager.lightdm = {
+        enable = true;
+        greeters.gtk = {
+          enable = true;
+          extraConfig = "keyboard=onboard";
+        };
+        background = "#000000";
+      };
       # Enable the X11 windowing system.
-      enable = false;
+      enable = true;
       # Enable the GNOME Desktop Environment.
       # desktopManager.gnome.enable = true;
       # desktopManager.xfce.enable = true;
@@ -214,7 +223,10 @@
       # zerotierone
       tailscale
       packagekit
-      qt6.qtvirtualkeyboard
+      onboard
+      # maliit-keyboard
+      # maliit-framework
+      # qt6.qtvirtualkeyboard
       # kdePackages.qtvirtualkeyboard
       # libsForQt5.qt5.qtvirtualkeyboard
       linuxKernel.packages.linux_zen.v4l2loopback
