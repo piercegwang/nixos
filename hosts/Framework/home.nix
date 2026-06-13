@@ -232,7 +232,6 @@
     hledger
 
     # Gaming
-    airshipper
     luanti
     endless-sky
     cataclysm-dda-git
