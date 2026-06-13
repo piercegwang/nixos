@@ -16,8 +16,8 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   hardware.bluetooth = {
     enable = false;
@@ -56,11 +56,11 @@
   #   psk="ext:CUCENTER_PSK"
   #   '';
   # };
-  networking.wireless.networks."SpectrumSetup-FF" = {
-    auth = ''
-    psk=ext:APT_205W6D_PSK
-    '';
-  };
+  # networking.wireless.networks."SpectrumSetup-FF" = {
+  #   auth = ''
+  #   psk=ext:APT_205W6D_PSK
+  #   '';
+  # };
 
   # Set your time zone.
   # time.timeZone = "America/Los_Angeles";
