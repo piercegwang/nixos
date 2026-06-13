@@ -10,6 +10,10 @@
     "flakes"
   ];
 
+  nix.settings.trusted-users = [
+    "piercewang"
+  ];
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -107,6 +111,7 @@
     desktopManager.plasma6.enable = true;
     # desktopManager.gnome.enable = true;
     # displayManager.gdm.enable = true;
+    displayManager.defaultSession = "plasma";
     displayManager.sddm = {
       enable = false;
     #   enableHidpi = true;
@@ -193,14 +198,14 @@
 
   jovian = {
     decky-loader = {
-      enable = true;
+      enable = false;
       user = "piercewang";
     };
     steam = {
       enable = true;
       # autoStart = false; # No longer necessary since desktopSession is set
       user = "piercewang";
-      desktopSession = "plasma"; # plasma6 or gnome
+      desktopSession = "plasma";
     };
     devices.steamdeck = {
       enable = true;

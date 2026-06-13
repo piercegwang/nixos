@@ -128,7 +128,7 @@
     # zstd
     stable-2305.gnupg1
     oh-my-zsh
-    zulu # Java
+    zulu25 # Java
     openssl
     libreoffice
     wireshark
