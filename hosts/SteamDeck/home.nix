@@ -128,7 +128,7 @@
     # zstd
     stable-2305.gnupg1
     oh-my-zsh
-    zulu25 # Java
+    jdk25 # Java
     openssl
     libreoffice
     wireshark
@@ -218,7 +218,7 @@
     # airshipper
     luanti # minetest, renamed
     # endless-sky
-    prismlauncher
+    (prismlauncher.override { jdks = [jdk21 jdk25]; })
     # heroic
 
     # General Apps
