@@ -148,38 +148,38 @@
     ngrok
 
     # R stuff
-    quarto
-    (rWrapper.override {
-      packages = with pkgs.rPackages; [
-        # data.table
-        chron
-        plyr
-        dplyr
-        shiny
-        shinyjs
-        parallel
-        doMC
-        # stats
-        microbenchmark
-        ggplot2
-        readxl
-        feather
-        googlesheets4
-        readr
-        DT
-        knitr
-        rmarkdown
-        Rcpp
-        formattable
-        ggnewscale
-        htmltools
-        lubridate
-        stringr
-        tidyr
-        tidyverse
-        ## the rest of your R packages here
-      ];}
-    )
+    # quarto
+    # (rWrapper.override {
+    #   packages = with pkgs.rPackages; [
+    #     # data.table
+    #     chron
+    #     plyr
+    #     dplyr
+    #     shiny
+    #     shinyjs
+    #     parallel
+    #     doMC
+    #     # stats
+    #     microbenchmark
+    #     ggplot2
+    #     readxl
+    #     feather
+    #     googlesheets4
+    #     readr
+    #     DT
+    #     knitr
+    #     rmarkdown
+    #     Rcpp
+    #     formattable
+    #     ggnewscale
+    #     htmltools
+    #     lubridate
+    #     stringr
+    #     tidyr
+    #     tidyverse
+    #     ## the rest of your R packages here
+    #   ];}
+    # )
     pandoc
 
     # nix related

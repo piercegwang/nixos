@@ -77,7 +77,7 @@
     # feel free to add your own or remove some of them
     maliit-keyboard
     maliit-framework
-    libsForQt5.qt5.qtwayland
+    qt5.qtwayland
     # squeekboard
     # wvkbd
 
