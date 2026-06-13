@@ -40,7 +40,7 @@
   # Pick only one of the below networking options.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.wireless.secretsFile = "/home/piercewang/.config/nixos/common/wireless.conf";
+  # networking.wireless.secretsFile = "/home/piercewang/.config/nixos/common/wireless.conf";
   # networking.wireless.environmentFile = "/run/secrets/secrets.env";
   #networking.wireless.networks."Columbia U Secure" = {
   #  auth = ''
@@ -166,7 +166,10 @@
     ripgrep
     git
     postgresql
+    tmux
   ];
+
+  programs.tmux.extraConfig = "set-window-option -g mode-keys vi\nbind-key -T copy-mode-vi v send -X begin-selection\nbind-key -T copy-mode-vi V send -X select-line\nbind-key -T copy-mode-vi y send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'";
 
 
   # What is this for?
