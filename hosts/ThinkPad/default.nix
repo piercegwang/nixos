@@ -13,6 +13,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/nextcloud
+      ../../modules/minecraft
     ];
 
   # Bootloader.
@@ -107,7 +108,8 @@
     cron.systemCronJobs = [
       "0 4 * * * root shutdown -r +5"
       "0 * * * * root nextcloud-occ preview:pre-generate"
-      "0 2 * * * root bash /home/piercewang/backup_to_extdrive.sh"
+      "0 2 * * * root bash /home/piercewang/.config/nixos/modules/nextcloud/backup_nc_extdrive.sh"
+      "0 3 * * * root bash /home/piercewang/.config/nixos/modules/minecraft/backup_minecraft.sh"
     ];
   };
 
@@ -166,6 +168,7 @@
     ripgrep
     git
     postgresql
+    zulu25 # for minecraft
     tmux
   ];
 
