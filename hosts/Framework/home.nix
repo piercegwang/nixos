@@ -232,10 +232,10 @@
     hledger
 
     # Gaming
-    airshipper
     luanti
     endless-sky
     cataclysm-dda-git
+    (prismlauncher.override { jdks = [jdk21 jdk25]; })
     # (lutris.override {
     #    extraPkgs = pkgs: [
     #      wine
