@@ -16,7 +16,7 @@
       difficulty = 3;
       gamemode = 1;
       max-players = 3;
-      motd = "NixOS Minecraft server!";
+      motd = "I'm singggging in the rain~";
       white-list = true;
       allow-cheats = true;
     };
