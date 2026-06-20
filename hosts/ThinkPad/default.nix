@@ -109,7 +109,7 @@
       "0 4 * * * root shutdown -r +5"
       "0 * * * * root nextcloud-occ preview:pre-generate"
       "0 2 * * * root bash /home/piercewang/.config/nixos/modules/nextcloud/backup_nc_extdrive.sh"
-      "0 3 * * * root bash /home/piercewang/.config/nixos/modules/minecraft/backup_minecraft.sh"
+      # "0 3 * * * root bash /home/piercewang/.config/nixos/modules/minecraft/backup_minecraft.sh"
     ];
   };
 
