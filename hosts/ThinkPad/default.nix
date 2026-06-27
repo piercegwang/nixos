@@ -103,6 +103,7 @@
     tailscale = {
       enable = true;
       # sudo tailscale up --auth-key=KEY 
+      useRoutingFeatures = "both";
     };
     openssh.enable = true;
     cron.systemCronJobs = [
