@@ -246,7 +246,7 @@
     # gimpPlugins.bimp
     droidcam
     #
-    #waydroid # android emulation
+    # waydroid # android emulation
     # sonobus # not useful unless someone else has it...
     # koodo-reader
     qFlipper

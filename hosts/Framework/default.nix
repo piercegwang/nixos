@@ -235,6 +235,12 @@
     docker-compose
   ];
 
+  virtualisation.waydroid = {
+    enable = false;
+    package = pkgs.waydroid-nftables;
+  };
+
+
 
   # What is this for?
   # systemd.packages = with pkgs; [
@@ -296,8 +302,9 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 53317 22 ];
-  networking.firewall.allowedUDPPorts = [ 53317 22 ];
+  networking.firewall.allowedTCPPorts = [ 53317 22 67 53 ];
+  networking.firewall.allowedUDPPorts = [ 53317 22 67 53 ];
+  networking.nftables.enable = false;
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

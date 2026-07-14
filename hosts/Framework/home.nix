@@ -274,6 +274,7 @@
     thunderbird
     # ollama
     # denaro
+    waydroid # android emulation
     qFlipper
 
     # Window manager
