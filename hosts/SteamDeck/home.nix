@@ -179,6 +179,7 @@
     btop  # replacement of htop/nmon
     kdePackages.filelight # disk usage statistics
     kdePackages.powerdevil # power management based on activity
+    kdePackages.kdeconnect-kde
     # iotop # io monitoring
     # iftop # network monitoring
 

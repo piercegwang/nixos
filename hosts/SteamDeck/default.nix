@@ -332,6 +332,7 @@
   programs.steam = {
     enable = true;
     extest.enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   # List services that you want to enable:
@@ -340,10 +341,10 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ 53317 34665 ];
-  # networking.firewall.allowedUDPPorts = [ 53317 34665 ];
+  networking.firewall.allowedTCPPorts = [ 53317 34665 22 67 53 ];
+  networking.firewall.allowedUDPPorts = [ 53317 34665 22 67 53 ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   home-manager.backupFileExtension = "backup";
 
