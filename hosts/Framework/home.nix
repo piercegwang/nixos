@@ -219,7 +219,7 @@
     ispell
     libtool
     sqlite
-    texlive.combined.scheme-full
+    texliveFull
     wl-clipboard
     xdotool
     xwininfo
@@ -269,7 +269,7 @@
     handbrake
     obs-studio
     kdePackages.kdenlive
-    davinci-resolve
+    # davinci-resolve
     karere
     thunderbird
     # ollama
