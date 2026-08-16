@@ -269,7 +269,7 @@
     handbrake
     obs-studio
     kdePackages.kdenlive
-    # davinci-resolve
+    davinci-resolve
     karere
     thunderbird
     # ollama
