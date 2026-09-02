@@ -203,7 +203,8 @@
     ispell
     libtool
     sqlite
-    texlive.combined.scheme-full
+    # texlive.combined.scheme-full
+    texliveFull
     wl-clipboard
     xdotool
     xwininfo
