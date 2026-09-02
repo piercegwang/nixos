@@ -229,7 +229,7 @@
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.falkon
     chromium
-    emacs30
+    emacs
     librewolf
     musescore
     nextcloud-client

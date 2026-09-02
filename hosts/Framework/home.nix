@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, zen-browser, ... }:
+{ config, pkgs, stable-2305, stable-2605, zen-browser, ... }:
 
 {
   home.username = "piercewang";
@@ -144,7 +144,8 @@
     # godot_4
     blender
     libresprite
-    vscode
+    stable-2605.vscode
+    code-cursor
     ngrok
 
     # R stuff
@@ -253,7 +254,7 @@
     kdePackages.kdeconnect-kde
     qutebrowser
     discord
-    emacs30
+    emacs
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default # ??
     musescore
     nextcloud-client

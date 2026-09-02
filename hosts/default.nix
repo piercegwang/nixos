@@ -1,4 +1,4 @@
-{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, nixpkgs-2411-stable, zen-browser, jovian-nixos, home-manager, nixos-hardware, ... }:
+{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2305-stable, nixpkgs-2411-stable, nixpkgs-2605-stable, zen-browser, jovian-nixos, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
@@ -10,6 +10,11 @@ let
   };
 
   stable-2305 = import nixpkgs-2305-stable {
+    inherit system;
+    config.allowUnfree = true;                              # Allow proprietary software
+  };
+
+  stable-2605 = import nixpkgs-2605-stable {
     inherit system;
     config.allowUnfree = true;                              # Allow proprietary software
   };
@@ -37,7 +42,7 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit user stable-2305 zen-browser;
+            inherit user stable-2305 stable-2605 zen-browser;
             host = {
               hostName = "piercewang";
               mainMonitor = "eDP-1";

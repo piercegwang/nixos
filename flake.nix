@@ -7,6 +7,7 @@
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";                # Default Stable Nix Packages
     nixpkgs-2305-stable.url = "github:nixos/nixpkgs/nixos-23.05";           # Default Nix Packages 23.05 (for gpg 2.4.0)
     nixpkgs-2411-stable.url = "github:nixos/nixpkgs/nixos-24.11";           # Default Nix Packages 24.05 (for handbrake)
+    nixpkgs-2605-stable.url = "github:nixos/nixpkgs/nixos-26.05";           # Default Nix Packages 26.05
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +29,7 @@
     };
   };
 
-  outputs = inputs @ {self, nixpkgs, nixpkgs-2305-stable, nixpkgs-2411-stable, zen-browser, jovian-nixos, home-manager, nixos-hardware, ...}:
+  outputs = inputs @ {self, nixpkgs, nixpkgs-2305-stable, nixpkgs-2411-stable, nixpkgs-2605-stable, zen-browser, jovian-nixos, home-manager, nixos-hardware, ...}:
     let                                                                     # Variables that can be used in the config files.
       inherit (self) outputs;
       user = "piercewang";
@@ -39,7 +40,7 @@
         nixosConfigurations = (
          import ./hosts {
             inherit (nixpkgs) lib;
-            inherit inputs outputs user nixpkgs nixpkgs-2305-stable nixpkgs-2411-stable zen-browser jovian-nixos home-manager nixos-hardware;
+            inherit inputs outputs user nixpkgs nixpkgs-2305-stable nixpkgs-2411-stable nixpkgs-2605-stable zen-browser jovian-nixos home-manager nixos-hardware;
           }
         );
       };

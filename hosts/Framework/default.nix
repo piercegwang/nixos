@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ outputs, config, pkgs, pkgs-stable, ... }:
+{ outputs, config, pkgs, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -71,8 +71,8 @@
   # };
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-  # time.timeZone = "America/New_York";
+  # time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/New_York";
   # time.timeZone = "America/Mexico_City";
 
   # Select internationalisation properties.
