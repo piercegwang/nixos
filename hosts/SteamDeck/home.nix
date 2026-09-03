@@ -162,6 +162,7 @@
     # libresprite
     nodejs_22
     vscode
+    code-cursor
 
     # R stuff
     pandoc
@@ -203,7 +204,6 @@
     ispell
     libtool
     sqlite
-    # texlive.combined.scheme-full
     texliveFull
     wl-clipboard
     xdotool
