@@ -144,7 +144,7 @@
     # godot_4
     blender
     libresprite
-    stable-2605.vscode
+    vscode
     code-cursor
     ngrok
 
