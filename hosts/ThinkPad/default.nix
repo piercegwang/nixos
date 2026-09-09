@@ -163,6 +163,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    tmux
     # gnome.gnome-tweaks
     # zerotierone
     tailscale
@@ -170,11 +171,9 @@
     git
     postgresql
     zulu25 # for minecraft
-    tmux
   ];
 
   programs.tmux.extraConfig = "set-window-option -g mode-keys vi\nbind-key -T copy-mode-vi v send -X begin-selection\nbind-key -T copy-mode-vi V send -X select-line\nbind-key -T copy-mode-vi y send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'";
-
 
   # What is this for?
   # systemd.packages = with pkgs; [
@@ -196,11 +195,20 @@
 
   # List services that you want to enable:
 
+  services.ollama = {
+    enable = false;
+    host = "0.0.0.0";
+    port = 11434;
+    openFirewall = true;
+    loadModels = [ "qwen3:8b" ];
+  };
+
   networking.firewall.enable = true;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     80
     443
+    11434
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
