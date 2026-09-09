@@ -277,6 +277,7 @@
     # denaro
     waydroid # android emulation
     qFlipper
+    foliate
 
     # Window manager
     # bspwm
