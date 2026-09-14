@@ -19,6 +19,8 @@
       motd = "DMA Memory Palace!";
       white-list = true;
       allow-cheats = true;
+      resource-pack = "https://cdn.modrinth.com/data/QI0EmgZ1/versions/E9rngRfK/Matcha_Flavoured_1_12.zip";
+      resource-pack-sha1 = "77d080d2fe207a886c8c784ac239dec54a213065";
     };
     jvmOpts = "-Xms2048M -Xmx2048M"; 
     package = pkgs.minecraftServers.vanilla-26-2;
