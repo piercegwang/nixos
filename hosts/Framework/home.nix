@@ -278,6 +278,7 @@
     waydroid # android emulation
     qFlipper
     foliate
+    blanket
 
     # Window manager
     # bspwm

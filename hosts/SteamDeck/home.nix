@@ -256,6 +256,7 @@
     # koodo-reader
     qFlipper
     foliate
+    blanket
 
     # Steam Deck
     # opensd
