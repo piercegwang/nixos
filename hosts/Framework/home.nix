@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, stable-2605, zen-browser, ... }:
+{ config, pkgs, stable-2605, zen-browser, helium-flake, ... }:
 
 {
   home.username = "piercewang";
@@ -116,7 +116,7 @@
     gnutar
     # gawk
     # zstd
-    stable-2305.gnupg1
+    gnupg1
     oh-my-zsh
     zulu # Java
     openssl
@@ -256,6 +256,7 @@
     discord
     emacs
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default # ??
+    helium-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader

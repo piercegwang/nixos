@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2305, zen-browser, helium-flake, ... }:
+{ config, pkgs, zen-browser, helium-flake, ... }:
 
 {
 
@@ -127,7 +127,7 @@
     gnutar
     # gawk
     # zstd
-    stable-2305.gnupg1
+    gnupg1
     oh-my-zsh
     jdk25 # Java
     openssl
@@ -259,7 +259,6 @@
     blanket
 
     # Steam Deck
-    # opensd
     sc-controller
     # steam-unwrapped
 
@@ -273,22 +272,6 @@
   ];
 
   services.emacs.enable = false;
-
-  # systemd.user.services.opensd = {
-  #   Unit = {
-  #     Description = "OpenSD Steam Deck userspace input driver daemon";
-  #   };
-  #   Install = {
-  #     WantedBy = [ "default.target" ];
-  #   };
-  #   Service = {
-  #     ExecStart = "${pkgs.opensd}/bin/opensdd -l info";
-  #     Restart = "on-failure";
-  #     RestartSec = 5;
-  #   };
-  # };
-
-  # See: https://codeberg.org/OpenSD/opensd/src/branch/master/systemd/opensd.service
 
   # xsession.windowManager.bspwm.enable = true;
 
