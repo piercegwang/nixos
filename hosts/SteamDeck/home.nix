@@ -244,6 +244,7 @@
     handbrake
     xournalpp
     pdftk
+    stirling-pdf-desktop
     obs-studio
     kdePackages.kdenlive
     # gimp-with-plugins
