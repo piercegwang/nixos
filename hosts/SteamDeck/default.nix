@@ -35,8 +35,8 @@
 
   hardware.bluetooth = {
     enable = true;
-   settings = {
-     General = {
+    settings = {
+      General = {
        # ControllerMode = "bredr";
        Enable = "Source,Sink,Media,Socket"; # Fixes connecting Bluetooth Earphones
      };
