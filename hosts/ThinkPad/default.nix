@@ -63,6 +63,16 @@
   #   '';
   # };
 
+  fileSystems."/mnt/nc_external_filesystem" = {
+    device = "/dev/disk/by-uuid/d07dfb18-61b6-4f1c-8ef3-cf8a0c1c3bca";
+    fsType = "ext4";
+    options = [
+      "users" # allower users to mount and unmount
+      "nofail" # prevent system from failing if this mount doesn't work
+      "exec" # permit execution of binaries and other executable files
+    ];
+  };
+
   # Set your time zone.
   # time.timeZone = "America/Los_Angeles";
   time.timeZone = "America/New_York";
