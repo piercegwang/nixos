@@ -137,6 +137,7 @@
 
   # Enable fwupd
   services.fwupd.enable = true;
+  services.blueferry.enable = true;
 
   services = {
     displayManager.sddm.enable = true;

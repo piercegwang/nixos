@@ -32,6 +32,7 @@ in
         nixos-hardware.nixosModules.framework-12th-gen-intel
         ./Framework
 
+	inputs.blueferry-nix.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -45,7 +46,6 @@ in
           };
           home-manager.users.${user} = {
             imports = [
-	      inputs.blueferry-nix.homeModules.default
               inputs.helium-flake.homeModules.default
               (import ./Framework/home.nix)
             ];
@@ -69,6 +69,7 @@ in
 
         ./SteamDeck
 
+	inputs.blueferry-nix.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -81,7 +82,6 @@ in
           };
           home-manager.users.${user} = {
             imports = [
-	      inputs.blueferry-nix.homeModules.default
               inputs.helium-flake.homeModules.default
               (import ./SteamDeck/home.nix)
             ];

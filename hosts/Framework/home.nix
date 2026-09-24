@@ -301,7 +301,6 @@
   ];
 
   services.emacs.enable = false;
-  services.blueferry.enable = true;
 
   xsession.windowManager.bspwm.enable = true;
 

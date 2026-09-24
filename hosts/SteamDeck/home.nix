@@ -269,7 +269,9 @@
     # adwaita-icon-theme
   ];
 
-  services.emacs.enable = false;
+  services = {
+    emacs.enable = false;
+  };
 
   # xsession.windowManager.bspwm.enable = true;
 
