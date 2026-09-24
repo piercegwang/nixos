@@ -1,4 +1,4 @@
-{ config, pkgs, zen-browser, helium-flake, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -228,8 +228,6 @@
     anki
     bitwarden-desktop
     brave
-    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    helium-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.falkon
     chromium
     emacs
@@ -292,28 +290,29 @@
 
 
   # Helium Setup
-  # programs.helium = {
-  #   enable = true;
+  programs.helium = {
+    enable = true;
 
-  # # Optional: override the package
-  # # package = pkgs.helium;
+    # Optional: override the package
+    # package = pkgs.helium;
 
-  #   # 🚩 Flags - Command-line arguments always passed to Helium
-  #   flags = [
-  #     "--disable-gpu"
-  #     "--ozone-platform-hint=auto"
-  #   ];
+    # 🚩 Flags - Command-line arguments always passed to Helium
+    flags = [
+      "--disable-gpu"
+      "--ozone-platform-hint=auto"
+      "--start-maximized"
+    ];
 
-  #   # 🎯 Policies - Written to /etc/chromium/policies/managed/helium-nixos.json
-  #   # Also written to /etc/helium/policies/managed/ for future compatibility
-  #   policies = {
-  #     "BrowserSignin" = 0;
-  #     "PasswordManagerEnabled" = false;
-  #     "SyncDisabled" = true;
-  #     "SpellcheckEnabled" = true;
-  #     "SpellcheckLanguage" = [ "en-US" ];
-  #   };
-  # };
+    # 🎯 Policies - Written to /etc/chromium/policies/managed/helium-nixos.json
+    # Also written to /etc/helium/policies/managed/ for future compatibility
+    policies = {
+      "BrowserSignin" = 0;
+      "PasswordManagerEnabled" = false;
+      # "SyncDisabled" = true;
+      # "SpellcheckEnabled" = true;
+      # "SpellcheckLanguage" = [ "en-US" ];
+    };
+  };
 
   # # GTK theming settings
   # gtk = {

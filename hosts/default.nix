@@ -1,4 +1,4 @@
-{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2605-stable, zen-browser, helium-flake, jovian-nixos, home-manager, nixos-hardware, ... }:
+{ lib, outputs, inputs, user, nixpkgs, nixpkgs-2605-stable, jovian-nixos, home-manager, nixos-hardware, ... }:
 
 let
   system = "x86_64-linux";
@@ -37,14 +37,54 @@ in
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
-            inherit user stable-2605 zen-browser helium-flake;
+            inherit user stable-2605;
             host = {
               hostName = "piercewang";
               mainMonitor = "eDP-1";
             };
           };
           home-manager.users.${user} = {
-            imports = [(import ./Framework/home.nix)];
+            imports = [
+	      inputs.blueferry-nix.homeModules.default
+              inputs.helium-flake.homeModules.default
+              (import ./Framework/home.nix)
+            ];
+          };
+          # optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+        }
+      ];
+    };
+
+    SteamDeck = lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit outputs inputs system user;
+        host = {
+          hostName = "SteamDeck";
+        };
+      };
+
+      modules = [
+        jovian-nixos.nixosModules.default
+
+        ./SteamDeck
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit user;
+            host = {
+              hostName = "piercewang";
+            };
+          };
+          home-manager.users.${user} = {
+            imports = [
+	      inputs.blueferry-nix.homeModules.default
+              inputs.helium-flake.homeModules.default
+              (import ./SteamDeck/home.nix)
+            ];
           };
           # optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
         }
@@ -74,38 +114,6 @@ in
           home-manager.users.${user} = {
             imports = [(import ./ThinkPad/home.nix)];
           };
-        }
-      ];
-    };
-
-    SteamDeck = lib.nixosSystem {
-      inherit system;
-      specialArgs = {
-        inherit outputs inputs system user;
-        host = {
-          hostName = "SteamDeck";
-        };
-      };
-
-      modules = [
-        jovian-nixos.nixosModules.default
-
-        ./SteamDeck
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit user zen-browser helium-flake;
-            host = {
-              hostName = "piercewang";
-            };
-          };
-          home-manager.users.${user} = {
-            imports = [(import ./SteamDeck/home.nix)];
-          };
-          # optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
         }
       ];
     };

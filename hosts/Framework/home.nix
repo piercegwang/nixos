@@ -1,4 +1,4 @@
-{ config, pkgs, stable-2605, zen-browser, helium-flake, ... }:
+{ config, pkgs, stable-2605, ... }:
 
 {
   home.username = "piercewang";
@@ -31,6 +31,22 @@
     settings.user = {
       name = "Pierce Wang";
       email = "pierce.g.wang@gmail.com";
+    };
+  };
+
+  programs.helium = {
+    enable = true;
+
+    # 🚩 Flags - Command-line arguments always passed to Helium
+    flags = [
+      # "--enable-features=TouchpadOverscrollHistoryNavigation"
+      "--start-maximized"
+    ];
+
+    # Optional: user policies (best-effort, use NixOS module for critical policies)
+    policies = {
+      "BrowserSignin" = 0;
+      "PasswordManagerEnabled" = false;
     };
   };
 
@@ -255,8 +271,6 @@
     qutebrowser
     discord
     emacs
-    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default # ??
-    helium-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
     musescore
     nextcloud-client
     # nodePackages_latest.musescore-downloader
@@ -287,6 +301,7 @@
   ];
 
   services.emacs.enable = false;
+  services.blueferry.enable = true;
 
   xsession.windowManager.bspwm.enable = true;
 
