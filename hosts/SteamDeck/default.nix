@@ -106,7 +106,7 @@
 
   # Enable fwupd
   services.fwupd.enable = true;
-  services.blueferry.enable = true;
+  services.blueferry.enable = false;
 
   services = {
     desktopManager.plasma6.enable = true;
