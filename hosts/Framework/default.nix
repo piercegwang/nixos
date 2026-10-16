@@ -137,7 +137,7 @@
 
   # Enable fwupd
   services.fwupd.enable = true;
-  services.blueferry.enable = true;
+  services.blueferry.enable = false;
 
   services = {
     displayManager.sddm.enable = true;
@@ -183,6 +183,16 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+    wireplumber.extraConfig."99-disable-a2dp-sink" = {
+      "monitor.bluez.properties" = {
+        "override.bluez5.roles" = [
+          # "a2dp_sink"
+          "a2dp_source"
+          "hfp_ag"
+          "bap_source"
+        ];
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
