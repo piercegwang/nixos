@@ -76,8 +76,8 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-    maliit-keyboard
-    maliit-framework
+    # maliit-keyboard
+    # maliit-framework
     qt5.qtwayland
     # squeekboard
     # wvkbd
@@ -220,7 +220,7 @@
     # Gaming
     # airshipper
     luanti # minetest, renamed
-    # endless-sky
+    endless-sky
     (prismlauncher.override { jdks = [jdk21 jdk25]; })
     # heroic
 
@@ -235,6 +235,7 @@
     musescore
     nextcloud-client
     signal-desktop
+    discord
     karere
     zoom-us
     slack

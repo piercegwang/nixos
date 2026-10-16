@@ -234,7 +234,7 @@
       # maliit-keyboard
       # maliit-framework
       # qt6.qtvirtualkeyboard
-      # kdePackages.qtvirtualkeyboard
+      kdePackages.qtvirtualkeyboard
       # libsForQt5.qt5.qtvirtualkeyboard
       linuxKernel.packages.linux_zen.v4l2loopback
       # where-is-my-sddm-theme
