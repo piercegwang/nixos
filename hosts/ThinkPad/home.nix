@@ -28,8 +28,10 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Pierce Wang";
-    userEmail = "pierce.g.wang@gmail.com";
+    settings = {
+      user.name = "Pierce Wang";
+      user.email = "pierce.g.wang@gmail.com";
+    };
   };
 
   # xsession = {

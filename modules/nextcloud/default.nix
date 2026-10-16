@@ -4,7 +4,7 @@
   # environment.etc."nextcloud-admin-pass".text = "initialpassword"; # use to make initial account
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud34;
+    package = pkgs.nextcloud35;
     hostName = "thinkpad";
     database.createLocally = true;
     settings = {
