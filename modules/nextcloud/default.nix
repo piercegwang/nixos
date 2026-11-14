@@ -28,8 +28,9 @@
     };
     config = {
       dbtype = "pgsql";
-      adminuser = "root";
-      adminpassFile = "/etc/nextcloud-root-pass";
+      # use `nextcloud-occ user:add <username> and nextcloud-occ group:adduser admin <username>` to add root user
+      # adminuser = "root";
+      # adminpassFile = "/etc/nextcloud-root-pass";
     };
     phpOptions = {
       upload_max_filesize = lib.mkForce "1G";
