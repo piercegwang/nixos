@@ -268,7 +268,6 @@
     kdePackages.falkon
     kdePackages.filelight # disk usage statistics
     kdePackages.kdeconnect-kde
-    qutebrowser
     discord
     emacs
     musescore
